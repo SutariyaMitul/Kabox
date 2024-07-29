@@ -23,7 +23,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: CommonColor.bgColor,
       appBar: AppBar(
         backgroundColor: CommonColor.colorBlue,
-        title: const Text(
+        title: Text(
           "Profile",
           style: TextStyles.eighteenTSWhiteSemiBold,
         ),
@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Text(
+                       Text(
                         "Christian Jebrail",
                         maxLines: 1,
                         softWrap: true,
@@ -170,7 +170,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(CommonText.storage,style: TextStyles.sixteenTSDarkGraySemiBold,),
-                          const Text("Allow",style: TextStyles.sixteenBlueRegular,),
+                           Text("Allow",style: TextStyles.sixteenBlueRegular,),
                         ],
                       ),
                     ),
@@ -182,7 +182,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(CommonText.camera,style: TextStyles.sixteenTSDarkGraySemiBold,),
-                          const Text("Allow",style: TextStyles.sixteenBlueRegular,),
+                           Text("Allow",style: TextStyles.sixteenBlueRegular,),
                         ],
                       ),
                     ),
@@ -195,7 +195,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(CommonText.location,style: TextStyles.sixteenTSDarkGraySemiBold,),
-                          const Text("Allow",style: TextStyles.sixteenBlueRegular,),
+                           Text("Allow",style: TextStyles.sixteenBlueRegular,),
                         ],
                       ),
                     ),
@@ -206,7 +206,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(CommonText.policyinfo,style: TextStyles.sixteenTSDarkGraySemiBold,),
-                          const Text(CommonText.integritypolicy,style: TextStyles.sixteenBlueRegular,softWrap: true,),
+                           Text(CommonText.integritypolicy,style: TextStyles.sixteenBlueRegular,softWrap: true,),
                         ],
                       ),
                     ),

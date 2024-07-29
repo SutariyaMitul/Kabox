@@ -19,14 +19,14 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             CommonText.upcomingCleanings,
             style: TextStyles.eighteenTSBlack,
           ),
           const SizedBox(
             height: 5,
           ),
-          const Text(
+           Text(
             CommonText.yourUpcomingCleanings,
             style: TextStyles.fourteenTSGrey,
           ),
@@ -35,7 +35,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                 itemCount: 5,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
-                      leading: const Text(
+                      leading:  Text(
                         "16 Apr",
                         style: TextStyles.fourteenTSGrey,
                       ),
@@ -66,11 +66,11 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                const Column(
+                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       CommonText.homeCleaning,
                                       style: TextStyles.sixteenBlue,
                                     ),

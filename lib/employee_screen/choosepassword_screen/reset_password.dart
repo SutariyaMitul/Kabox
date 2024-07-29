@@ -24,14 +24,14 @@ class _ResetPasswordState extends State<ResetPassword> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             CommonText.resetPassword,
             style: TextStyles.eighteenTSBlack,
           ),
           const SizedBox(
             height: 25,
           ),
-          const Text(
+           Text(
             CommonText.chooseNewPassword,
             style: TextStyles.fourteenTSBlack,
           ),
@@ -48,7 +48,7 @@ class _ResetPasswordState extends State<ResetPassword> {
           const SizedBox(
             height: 10,
           ),
-          const Text(
+           Text(
             CommonText.verifyPassword,
             style: TextStyles.fourteenTSBlack,
           ),
@@ -80,7 +80,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     )),
                 height: 48,
                 width: MediaQuery.of(context).size.width,
-                child: const Center(
+                child: Center(
                   child: Text(
                     CommonText.resetPassword,
                     style: TextStyles.fourteenTSWhite,

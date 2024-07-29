@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
+                     Padding(
                       padding: EdgeInsets.only(top: 24),
                       child: Text(
                         "Friday, 12 juli",
@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           style: TextStyles.twentyTSBlue,
                                         ),
                                       ),
-                                      const Padding(
+                                       Padding(
                                         padding: EdgeInsets.only(
                                             top: 2.0, bottom: 12),
                                         child: Text(

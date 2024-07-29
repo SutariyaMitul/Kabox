@@ -31,9 +31,9 @@ class _PasswordResetState extends State<PasswordReset> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  const Text(CommonText.passwordReset,
+                   Text(CommonText.passwordReset,
                       style: TextStyles.twentyFourTSBlack),
-                  const Text(CommonText.successfullyReset,
+                   Text(CommonText.successfullyReset,
                       style: TextStyles.sixteenTGrey),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 22),
@@ -45,7 +45,7 @@ class _PasswordResetState extends State<PasswordReset> {
                           )),
                       height: 48,
                       width: MediaQuery.of(context).size.width,
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           CommonText.returnToApp,
                           style: TextStyles.fourteenTSWhite,

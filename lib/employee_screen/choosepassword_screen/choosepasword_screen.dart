@@ -24,12 +24,12 @@ class _ChoosePasswordScreenState extends State<ChoosePasswordScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(CommonText.welcomeGlad,
+             Text(CommonText.welcomeGlad,
                 style: TextStyles.eighteenTSBlack),
             const SizedBox(
               height: 25,
             ),
-            const Text(
+             Text(
               CommonText.choosePassword,
               style: TextStyles.fourteenTSBlack,
             ),
@@ -46,7 +46,7 @@ class _ChoosePasswordScreenState extends State<ChoosePasswordScreen> {
             const SizedBox(
               height: 18,
             ),
-            const Text(
+             Text(
               CommonText.verifyPassword,
               style: TextStyles.fourteenTSBlack,
             ),
@@ -78,14 +78,14 @@ class _ChoosePasswordScreenState extends State<ChoosePasswordScreen> {
                       )),
                   height: 41,
                   width: MediaQuery.of(context).size.width,
-                  child: const Center(
+                  child:  Center(
                     child: Text(CommonText.Continue,
                         style: TextStyles.fourteenTSWhite),
                   ),
                 ),
               ),
             ),
-            const Row(
+             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

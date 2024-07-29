@@ -30,12 +30,12 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                     padding: const EdgeInsets.only(bottom: 22),
                     child: Image.asset("assets/images/releases.png"),
                   ),
-                  const Text(CommonText.checkYourEmail,
+                   Text(CommonText.checkYourEmail,
                       style: TextStyles.eighteenTSBlack),
                   const SizedBox(
                     height: 15,
                   ),
-                  const Text(CommonText.clickOnTheLink,
+                   Text(CommonText.clickOnTheLink,
                       style: TextStyles.sixteenTGrey),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 22),
@@ -47,7 +47,7 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                           )),
                       height: 48,
                       width: MediaQuery.of(context).size.width,
-                      child: const Center(
+                      child: Center(
                         child: Text(CommonText.openEmail,
                             style: TextStyles.fourteenTSWhite),
                       ),

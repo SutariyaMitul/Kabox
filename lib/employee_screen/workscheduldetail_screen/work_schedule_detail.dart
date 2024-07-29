@@ -24,17 +24,6 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
     return CommonAppbar(
       title: 'Back',
       centerTitle: false,
-      /*actions: [
-        Container(
-          height: 50,
-          //width: MediaQuery.of(context).size.width/4,
-          color: CommonColor.greyColor,
-          margin: const EdgeInsets.all(15),
-          child: const DropdownButtonHideUnderline(
-            child: Text('hello'),
-          ),
-        )
-      ],*/
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: CommonColor.colorBlue,
@@ -66,7 +55,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
                   const SizedBox(
                     width: 5,
                   ),
-                  const Column(
+                   Column(
                     children: [
                       Text(
                         CommonText.workingtime,
@@ -125,7 +114,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                               Text(
                                 "DATE",
                                 style: TextStyles.fourteenTSBlueSemiBold,
                               ),
@@ -138,7 +127,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                               Text(
                                 "TIME",
                                 style: TextStyles.fourteenTSBlueSemiBold,
                               ),
@@ -165,7 +154,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
                               ),
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 3),
-                              child: const Text(
+                              child:  Text(
                                 CommonText.notcompleted,
                                 style: TextStyles.twelveTSGrey,
                               )),
@@ -173,7 +162,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
                         ],
                       ),
                     ),
-                    const Text(
+                     Text(
                       CommonText.customer,
                       style: TextStyles.fourteenTSBlueSemiBold,
                     ),
@@ -194,7 +183,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
                                 "Huskvarnavägen 62",
                                 style: TextStyles.sixteenTSDarkGrayRegular,
                               ),
-                              const Text(
+                               Text(
                                 "554 54 Jönköping",
                                 style: TextStyles.sixteenTGrey,
                               ),
@@ -203,7 +192,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
                           //const Spacer(),
                           Row(
                             children: [
-                              const Text(
+                               Text(
                                 CommonText.viewdirection,
                                 style: TextStyles.fourteenTSBlue,
                               ),
@@ -228,7 +217,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
               width: width,
               color: Colors.white,
               margin: const EdgeInsets.only(top: 12, bottom: 12),
-              child: const Padding(
+              child:  Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,7 +241,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
               width: width,
               color: Colors.white,
               margin: const EdgeInsets.only(bottom: 12),
-              child: const Padding(
+              child:  Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -274,7 +263,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
               width: width,
               color: Colors.white,
               margin: const EdgeInsets.only(bottom: 12),
-              child: const Padding(
+              child:  Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -296,7 +285,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail> {
               width: width,
               color: Colors.white,
               margin: const EdgeInsets.only(bottom: 12),
-              child: const Padding(
+              child:  Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

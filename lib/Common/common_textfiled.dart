@@ -13,7 +13,7 @@ class CommonTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final double? height;
   final int? maxLines;
-  final Widget? preffixIcon;
+  //final Widget? preffixIcon;
 
   CommonTextFormField({
     required this.controller,
@@ -27,7 +27,7 @@ class CommonTextFormField extends StatelessWidget {
     this.height,
     this.maxLines,
     this.prefixIcon,
-    this.preffixIcon,
+    //this.preffixIcon,
   });
 
   @override
@@ -43,6 +43,8 @@ class CommonTextFormField extends StatelessWidget {
           hintStyle: hintStyle,
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
+          //alignLabelWithHint: true,
+          floatingLabelAlignment: FloatingLabelAlignment.start,
           filled: true,
           fillColor: const Color(0xffF9FAFB),
           border: OutlineInputBorder(

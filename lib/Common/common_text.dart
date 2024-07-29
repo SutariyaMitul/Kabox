@@ -46,7 +46,6 @@ class CommonText{
   static const String notcompleted = "Not completed";
   static const String customer = "CUSTOMER";
   static const String viewdirection = "View directions";
-
   static const String key_num_desc = "Key number connected to this customer";
   static const String key_num_desc_detail = "Description of code for entrance/alarm. Ex. “When entering, to the right there is a device to enter code. Enter *123124124*. When exiting, press * to activate alarm again.";
   static const String note_detail = "This is the note that is placed on this specific days’ scheduled event, regardless of the full project/order note. It is otherwise hidden. Also, note from customer app is placed here.";
@@ -91,6 +90,11 @@ class CommonText{
   static String requestforwork  = 'Request for work';
   static String availability  = 'Availability';
   static String registerabsence  = 'Register absence';
+  static String typeOfAbsence  = 'Type of absence';
+  static String chooseTypeOfAbsence  = 'Choose type of absence';
+  static String absence  = 'Absence (hours)';
+  static String optional  = 'Optional note for extra info';
+  static String writeTextHere  = 'Write text here ...';
 
 
 

@@ -44,7 +44,7 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
                       const SizedBox(
                         width: 5,
                       ),
-                      const Column(
+                       Column(
                         children: [
                           Text(
                             CommonText.workingtime,
@@ -103,7 +103,7 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                               Text(
                                 "DATE",
                                 style: TextStyles.fourteenTSBlueSemiBold,
                               ),
@@ -117,7 +117,7 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                               Text(
                                 "TIME",
                                 style: TextStyles.fourteenTSBlueSemiBold,
                               ),
@@ -143,7 +143,7 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
                                   borderRadius: BorderRadius.circular(15),),
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 3),
-                              child: const Text(
+                              child:  Text(
                                 CommonText.notcompleted,
                                 style: TextStyles.twelveTSGrey,
                               )),
@@ -151,7 +151,7 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
                         ],
                       ),
                     ),
-                    const Text(
+                     Text(
                       CommonText.customer,
                       style: TextStyles.fourteenTSBlueSemiBold,
                     ),
@@ -172,7 +172,7 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
                                 "Huskvarnavägen 62",
                                 style: TextStyles.sixteenTSDarkGrayRegular,
                               ),
-                              const Text(
+                               Text(
                                 "554 54 Jönköping",
                                 style: TextStyles.sixteenTGrey,
                               ),
@@ -181,7 +181,7 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
                           const Spacer(),
                           Row(
                             children: [
-                              const Text(
+                               Text(
                                 CommonText.viewdirection,
                                 style: TextStyles.fourteenTSBlue,
                               ),
@@ -206,8 +206,8 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
               width: width,
               color: Colors.white,
               margin: const EdgeInsets.only(top: 12, bottom: 12),
-              child: const Padding(
-                padding: EdgeInsets.all(20.0),
+              child:  Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -230,12 +230,12 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
               width: width,
               color: Colors.white,
               margin: const EdgeInsets.only(bottom: 12),
-              child: const Padding(
-                padding: EdgeInsets.all(20.0),
+              child:  Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommonInfoItem(
+                     CommonInfoItem(
                       svgPath: "assets/images/note.svg",
                       description: CommonText.note,
                       textStyle: TextStyles.sixteenBlueSemiBold,
@@ -252,12 +252,12 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
               width: width,
               color: Colors.white,
               margin: const EdgeInsets.only(bottom: 12),
-              child: const Padding(
-                padding: EdgeInsets.all(20.0),
+              child:  Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommonInfoItem(
+                     CommonInfoItem(
                       svgPath: "assets/images/description_icon.svg",
                       description: CommonText.product_description,
                       textStyle: TextStyles.sixteenBlueSemiBold,
@@ -274,8 +274,8 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
               width: width,
               color: Colors.white,
               margin: const EdgeInsets.only(bottom: 12),
-              child: const Padding(
-                padding: EdgeInsets.all(20.0),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

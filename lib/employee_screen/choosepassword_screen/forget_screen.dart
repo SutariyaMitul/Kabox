@@ -23,16 +23,16 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(CommonText.forgotYourPassword,
+             Text(CommonText.forgotYourPassword,
                 style: TextStyles.eighteenTSBlack),
             const SizedBox(
               height: 15,
             ),
-            const Text(CommonText.codeToReset, style: TextStyles.sixteenTGrey),
+             Text(CommonText.codeToReset, style: TextStyles.sixteenTGrey),
             const SizedBox(
               height: 25,
             ),
-            const Text(
+             Text(
               CommonText.email,
               style: TextStyles.fourteenTSBlack,
             ),
@@ -63,7 +63,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       )),
                   height: 48,
                   width: MediaQuery.of(context).size.width,
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       CommonText.resetPassword,
                       style: TextStyles.fourteenTSWhite,

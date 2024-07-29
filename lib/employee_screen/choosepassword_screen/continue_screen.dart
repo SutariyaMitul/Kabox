@@ -19,14 +19,14 @@ class _ContinueScreenState extends State<ContinueScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+             Text(
                 CommonText.greatNow,
                 style: TextStyles.eighteenTSBlack
             ),
             const SizedBox(
               height: 25,
             ),
-            const Text(
+             Text(
              CommonText.mobileDevice,
                 style: TextStyles.sixteenTGrey
             ),

@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 25,
                 ),
-                const Text(
+                 Text(
                   CommonText.email,
                   style: TextStyles.fourteenTSBlack,
                 ),
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 18,
                 ),
-                const Text(
+                 Text(
                   CommonText.password,
                   style: TextStyles.fourteenTSBlack,
                 ),
@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         )),
                     height: 41,
                     width: MediaQuery.of(context).size.width,
-                    child: const Center(
+                    child: Center(
                       child: Text(
                         CommonText.login,
                         style: TextStyles.fourteenTSWhite,
@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         );
                       },
-                      child: const Text(
+                      child: Text(
                         CommonText.forgetYourPassword,
                         style: TextStyles.fourteenTSBlue,
                       ),
@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            const Expanded(
+             Expanded(
                 child: Padding(
               padding: EdgeInsets.only(bottom: 24),
               child: Column(

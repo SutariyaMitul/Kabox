@@ -69,7 +69,7 @@ class RegisterTab extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             CommonText.email,
             style: TextStyles.fourteenTSBlack,
           ),
@@ -80,14 +80,14 @@ class RegisterTab extends StatelessWidget {
             controller: _emailController,
             labelText: CommonText.enterYourEmail,
           ),
-          const Text(
+           Text(
             CommonText.sameEmail,
             style: TextStyles.twelveGrey,
           ),
           const SizedBox(
             height: 16,
           ),
-          const Text(
+           Text(
             CommonText.password,
             style: TextStyles.fourteenTSBlack,
           ),
@@ -104,7 +104,7 @@ class RegisterTab extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const Text(
+           Text(
             CommonText.firstName,
             style: TextStyles.fourteenTSBlack,
           ),
@@ -119,7 +119,7 @@ class RegisterTab extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const Text(
+           Text(
             CommonText.lastName,
             style: TextStyles.fourteenTSBlack,
           ),
@@ -142,7 +142,7 @@ class RegisterTab extends StatelessWidget {
                   )),
               height: 41,
               width: MediaQuery.of(context).size.width,
-              child: const Center(
+              child:  Center(
                 child: Text(
                   CommonText.login,
                   style: TextStyles.fourteenTSWhite,
@@ -168,7 +168,7 @@ class Login extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             CommonText.email,
             style: TextStyles.fourteenTSBlack,
           ),
@@ -182,7 +182,7 @@ class Login extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const Text(
+           Text(
             CommonText.password,
             style: TextStyles.fourteenTSBlack,
           ),
@@ -207,7 +207,7 @@ class Login extends StatelessWidget {
                   )),
               height: 41,
               width: MediaQuery.of(context).size.width,
-              child: const Center(
+              child:  Center(
                 child: Text(
                   CommonText.login,
                   style: TextStyles.fourteenTSWhite,
@@ -215,7 +215,7 @@ class Login extends StatelessWidget {
               ),
             ),
           ),
-          const Row(
+           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

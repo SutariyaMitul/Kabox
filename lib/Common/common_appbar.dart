@@ -21,7 +21,7 @@ class CommonAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CommonColor.bgColor,
+      //backgroundColor: CommonColor.bgColor,
       appBar: AppBar(
         backgroundColor: CommonColor.blueColor,
         actions: actions,

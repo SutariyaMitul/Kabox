@@ -64,15 +64,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(8)),
               padding: const EdgeInsets.all(8),
-              child: const Row(
+              child:  Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.calendar_month,
                     size: 20,
                     color: Colors.black,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 4.0),
+                    padding: const EdgeInsets.only(left: 4.0),
                     child: Text(
                       'Today',
                       style: TextStyles.fourteenTSBlack,
@@ -162,7 +162,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                             'Monday',
                             style: TextStyles.eighteenTSBlackSemiBold,
                           ),
-                          const Text(
+                           Text(
                             '7:30h',
                             style: TextStyles.fourteenTSGrey,
                           ),

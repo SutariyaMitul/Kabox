@@ -30,11 +30,11 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ],
             ),
-            const Text(
+             Text(
               CommonText.comeOnIn,
               style: TextStyles.eighteenTSBlack,
             ),
-            const Text(
+             Text(
               CommonText.bookingsEasily,
               style: TextStyles.sixteenTGrey,
             ),
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 height: 41,
                 width: MediaQuery.of(context).size.width,
-                child: const Center(
+                child:  Center(
                   child: Text(
                     CommonText.createAccount,
                     style: TextStyles.fourteenTSWhite,
@@ -65,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   )),
               height: 41,
               width: MediaQuery.of(context).size.width,
-              child: const Center(
+              child: Center(
                 child: Text(
                   CommonText.login,
                   style: TextStyles.fourteenTSWhite,

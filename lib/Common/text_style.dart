@@ -2,75 +2,79 @@ import 'package:flutter/material.dart';
 import 'package:kbox/Common/common_color.dart';
 
 class TextStyles {
-  static const TextStyle twentyFourTSBlack = TextStyle(
+  static  TextStyle twentyFourTSBlack = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: CommonColor.black,
     fontFamily: "Inter",
   );
 
-  static const TextStyle eighteenTSGrey = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.normal,
-    color: Colors.grey,
-    fontFamily: "Inter",
-  );
-
-  static const TextStyle fourteenTSWhite = TextStyle(
+  static TextStyle fourteenTSWhite = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
-    color: Colors.white,
+    color: CommonColor.white,
     fontFamily: "Inter",
   );
-  static const TextStyle fourteenTSBlack = TextStyle(
+  static TextStyle fourteenTSBlack = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    color: Colors.black,
+    color: CommonColor.darkGreyColor,
     fontFamily: "Inter",
+    fontStyle: FontStyle.normal
   );
-  static const TextStyle fourteenTSBlackMedium = TextStyle(
+  static TextStyle fourteenTSBlackMedium = TextStyle(
     fontSize: 14,
-    fontWeight: FontWeight.w600,
-    color: Colors.black,
+    fontWeight: FontWeight.w500,
+    color: CommonColor.darkGreyColor,
     fontFamily: "Inter",
+    fontStyle: FontStyle.normal
   );
-  static const TextStyle fourteenTSBlackSemiBold = TextStyle(
+  static TextStyle fourteenTSBlackSemiBold = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w700,
-    color: Colors.black,
+    color: CommonColor.black,
     fontFamily: "Inter",
   );
-  static const TextStyle fourteenTSWhiteMedium = TextStyle(
+  static TextStyle fourteenTSWhiteMedium = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
-    color: Colors.white,
+    color: CommonColor.white,
     fontFamily: "Inter",
   );
-  static const TextStyle fourteenTSBlue = TextStyle(
+  static TextStyle fourteenTSBlue = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    color: Color(0xff1C64F2),
+    color: CommonColor.blueColor,
     fontFamily: "Inter",
     fontStyle: FontStyle.normal
   );
 
-  static const TextStyle fourteenTSBlueSemiBold = TextStyle(
+  static  TextStyle fourteenTSBlueSemiBold = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w700,
-    color: Color(0xff1A56DB),
+    color: CommonColor.blueWhiteColor,
     fontFamily: "Inter",
   );
-  static const TextStyle fourteenTSGrey = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w500,
-    color: Colors.grey,
+  static TextStyle fourteenTSGrey = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: CommonColor.grayColor,
     fontFamily: "Inter",
+    fontStyle: FontStyle.normal
   );
 
-  static const TextStyle twelveTSGrey = TextStyle(
+  static TextStyle fourteenTSGreySemi = TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      color: CommonColor.grayColor,
+      fontFamily: "Inter",
+      fontStyle: FontStyle.normal
+  );
+
+  static TextStyle twelveTSGrey = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    color: Colors.grey,
+    color: CommonColor.grayColor,
     fontFamily: "Inter",
   );
 
@@ -88,24 +92,24 @@ class TextStyles {
     fontFamily: "Inter",
   );
 
-  static const TextStyle eighteenTSBlack = TextStyle(
+  static TextStyle eighteenTSBlack = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: CommonColor.black,
     fontFamily: "Inter",
   );
 
-  static const TextStyle eighteenTSWhiteSemiBold = TextStyle(
+  static TextStyle eighteenTSWhiteSemiBold = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w700,
-    color: Colors.white,
+    color: CommonColor.white,
     fontFamily: "Inter",
   );
 
-  static const TextStyle sixteenTGrey = TextStyle(
+  static TextStyle sixteenTGrey = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: Colors.grey,
+    color: CommonColor.greyLightColor,
     fontFamily: "inter",
   );
 
@@ -122,17 +126,17 @@ class TextStyles {
     fontFamily: "inter",
   );
 
-  static const TextStyle twelveGrey = TextStyle(
+  static TextStyle twelveGrey = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    color: Colors.grey,
+    color:CommonColor.greyLightColor,
     fontFamily: "inter",
   );
 
-  static const TextStyle sixteenBlueSemiBold = TextStyle(
+  static TextStyle sixteenBlueSemiBold = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w700,
-    color: Color(0xff1A56DB),
+    color: CommonColor.blueWhiteColor,
     fontFamily: "inter",
   );
   static TextStyle sixteenGreySemiBold = TextStyle(
@@ -149,17 +153,17 @@ class TextStyles {
     fontFamily: "inter",
   );
 
-  static const TextStyle sixteenBlueRegular = TextStyle(
+  static TextStyle sixteenBlueRegular = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
-    color: Color(0xff1A56DB),
+    color: CommonColor.blueWhiteColor,
     fontFamily: "inter",
   );
 
-  static const TextStyle twentyBlue = TextStyle(
+  static TextStyle twentyBlue = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
-    color: Color(0xff1A56DB),
+    color: CommonColor.blueWhiteColor,
     fontFamily: "inter",
   );
 
@@ -178,31 +182,31 @@ class TextStyles {
     fontStyle: FontStyle.normal
   );
 
-  static TextStyle eighteenTSBlackSemiBold = const TextStyle(
+  static TextStyle eighteenTSBlackSemiBold =  TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w700,
-    color: Colors.black,
+    color: CommonColor.black,
     fontFamily: 'Inter',
   );
 
-  static TextStyle eighteenTSWhite = const TextStyle(
+  static TextStyle eighteenTSWhite =  TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
-    color: Colors.white,
+    color: CommonColor.white,
     fontFamily: 'Inter',
   );
 
-  static TextStyle sixteenTSWhite = const TextStyle(
+  static TextStyle sixteenTSWhite =  TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: Colors.white,
+    color: CommonColor.white,
     fontFamily: 'Inter',
   );
 
-  static TextStyle sixteenTSWhiteSemiBold = const TextStyle(
+  static TextStyle sixteenTSWhiteSemiBold =  TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w700,
-    color: Colors.white,
+    color: CommonColor.white,
     fontFamily: 'Inter',
   );
   static TextStyle sixteenTSBlueSemiBold = TextStyle(
@@ -212,16 +216,16 @@ class TextStyles {
     fontFamily: 'Inter',
   );
 
-  static TextStyle sixteenTSGrey = const TextStyle(
+  static TextStyle sixteenTSGrey =  TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: Colors.grey,
+    color: CommonColor.greyLightColor,
     fontFamily: 'Inter',
   );
-  static TextStyle sixteenTSBlack = const TextStyle(
+  static TextStyle sixteenTSBlack =  TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: Color(0xff374151),
+    color: CommonColor.darkGrayColor,
     fontStyle: FontStyle.normal,
     fontFamily: 'Inter',
   );
@@ -241,11 +245,11 @@ class TextStyles {
     fontFamily: 'Inter',
   );
 
-  static TextStyle twentyTSWhite = const TextStyle(
+  static TextStyle twentyTSWhite = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
     fontStyle: FontStyle.normal,
-    color: Colors.white,
+    color: CommonColor.white,
     fontFamily: 'Inter',
   );
 
