@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class CommonColor{
-  static Color bgColor = const Color(0xffE5E5E5);
+  static Color bgColor = const Color(0xffF3F4F6);
   static Color black = const Color(0xff000000);
   static Color white = const Color(0xffFFFFFF);
   static Color colorBlue = const Color(0xff1C64F2);

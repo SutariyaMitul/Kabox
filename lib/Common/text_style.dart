@@ -196,6 +196,13 @@ class TextStyles {
     fontFamily: 'Inter',
   );
 
+  static TextStyle eighteenTSWhiteNormal = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+    color: Colors.white,
+    fontFamily: 'Inter',
+  );
+
   static TextStyle sixteenTSWhite =  TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
