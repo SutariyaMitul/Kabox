@@ -7,6 +7,7 @@ class CommonColor{
   static Color colorBlue = const Color(0xff1C64F2);
   static Color borderColor = const Color(0xffD1D5DB);
   static Color greenColor = const Color(0xff0E9F6E);
+  static Color darkLightGreenColor = const Color(0xff03543F);
   static Color lightgreenColor = const Color(0xffDEF7EC);
   static Color darkGreyColor = const Color(0xff111928);
   static Color greyColor = const Color(0xff4B5563);

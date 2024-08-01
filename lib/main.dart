@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kbox/Common/common_bottombar.dart';
 import 'employee_screen/home_screen/main_activity.dart';
 
 void main() {
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainActivity(),
+      //home: MainScreen(),
     );
   }
 }

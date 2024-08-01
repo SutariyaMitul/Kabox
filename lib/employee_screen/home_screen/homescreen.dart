@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ));
     return Scaffold(
       backgroundColor: CommonColor.bgColor,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           color: const Color(0xffF3F4F6),

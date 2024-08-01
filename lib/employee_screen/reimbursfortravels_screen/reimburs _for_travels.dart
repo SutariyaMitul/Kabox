@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../../Common/common_appbar.dart';
-import '../../Common/common_color.dart';
-import '../../Common/common_text.dart';
-import '../../Common/common_textfiled.dart';
-import '../../Common/text_style.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kbox/Common/common_appbar.dart';
+import 'package:kbox/Common/common_color.dart';
+import 'package:kbox/Common/common_text.dart';
+import 'package:kbox/Common/common_textfiled.dart';
+import 'package:kbox/Common/text_style.dart';
+import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
 class ReimbursForTravels extends StatefulWidget {
   const ReimbursForTravels({super.key});
@@ -22,30 +23,39 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
   Widget build(BuildContext context) {
     return CommonAppbar(
       title: CommonText.reimbursementForTravels,
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
+      bottomNavigationBar: CommonBottomBar(
+        onTap: (int index) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+                builder: (context) => MainActivity(selectedIndex: index)),
+            (route) => false,
+          );
+        },
+      ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        color: CommonColor.white,
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   CommonText.date,
                   style: TextStyles.fourteenTSBlack,
                 ),
               ),
               CommonTextFormField(
-                height: 42,
-                controller: dateController,
-                labelText: CommonText.selectDate,
-                labelStyles: TextStyles.fourteenTSGreySemi,
-                prefixIcon: Icon(
-                  Icons.calendar_month,
-                  color: CommonColor.grayColor,
-                ),
-              ),
+                  height: 42,
+                  controller: dateController,
+                  labelText: CommonText.selectDate,
+                  labelStyles: TextStyles.fourteenTSGreySemi,
+                  prefixIcon: SvgPicture.asset(
+                    "assets/images/calendar.svg",
+                    fit: BoxFit.scaleDown,
+                  )),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
@@ -69,7 +79,7 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
               const SizedBox(
                 height: 15,
               ),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   CommonText.note,

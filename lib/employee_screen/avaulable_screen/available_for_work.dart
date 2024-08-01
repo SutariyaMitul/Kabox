@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
 import '../../Common/common_appbar.dart';
 import '../../Common/common_color.dart';
@@ -29,6 +30,15 @@ class _AvaulableForWorkState extends State<AvaulableForWork> {
   Widget build(BuildContext context) {
     return CommonAppbar(
         title: CommonText.availability,
+        bottomNavigationBar: CommonBottomBar(
+          onTap: (int index) {
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                  builder: (context) => MainActivity(selectedIndex: index)),
+              (route) => false,
+            );
+          },
+        ),
         body: Container(
           height: MediaQuery.of(context).size.height,
           color: const Color(0xffFFFFFF),
@@ -70,7 +80,7 @@ class _AvaulableForWorkState extends State<AvaulableForWork> {
                       )
                     ],
                   ),
-                   Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       CommonText.from,
@@ -240,7 +250,7 @@ class _AvaulableForWorkState extends State<AvaulableForWork> {
                       ),
                     ),
                   ),
-                   Padding(
+                  Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       CommonText.note,
@@ -255,8 +265,7 @@ class _AvaulableForWorkState extends State<AvaulableForWork> {
                         fontWeight: FontWeight.w400,
                         color: Color(0xff6B7280),
                         fontFamily: "Inter",
-                        fontStyle: FontStyle.normal
-                    ),
+                        fontStyle: FontStyle.normal),
                     maxLines: 3,
                     height: 100,
                   ),
