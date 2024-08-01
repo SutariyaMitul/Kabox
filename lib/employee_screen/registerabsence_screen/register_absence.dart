@@ -89,7 +89,6 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                   ),
                 ),
                 CommonTextFormField(
-                  height: 42,
                   controller: dateController,
                   labelText: CommonText.from,
                   labelStyles: TextStyles.fourteenTSGrey,
@@ -146,7 +145,6 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                   ),
                 ),
                 CommonTextFormField(
-                  height: 42,
                   controller: dateController,
                   labelText: '08:00',
                   labelStyles: TextStyles.fourteenTSGrey,
@@ -170,7 +168,6 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                   controller: dateController,
                   labelText: CommonText.writeTextHere,
                   labelStyles: TextStyles.fourteenTSGrey,
-                  height: 100,
                   maxLines: 5,
                 ),
                 Padding(

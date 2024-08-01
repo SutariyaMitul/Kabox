@@ -22,6 +22,12 @@ class CommonColor{
   static Color lightGrey = const Color(0xffbebebe);
   static Color skyGreenLight = const Color(0xffDEF7EC);
   static Color skyGreenDark = const Color(0xff31C48D);
+  static Color darkGreenText = const Color(0xff057A55);
+  static Color lightBlue = const Color(0xffE1EFFE);
+  static Color skyBlueDark = const Color(0xff76A9FA);
+  static Color lightPurple = const Color(0xffEDEBFE);
+  static Color darkPurple = const Color(0xffAC94FA);
   static Color red = const Color(0xffE02424);
   static Color greenGrayColor = const Color(0xffE5E7EB);
+  static Color textInputBgColor = const Color(0xFFF9FAFB);
 }

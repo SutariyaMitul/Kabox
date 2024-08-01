@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kbox/Common/common_color.dart';
+import 'package:kbox/Common/text_style.dart';
 
 class CommonTextFormField extends StatelessWidget {
   final TextEditingController controller;
@@ -11,7 +12,6 @@ class CommonTextFormField extends StatelessWidget {
   final TextStyle? labelStyles;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
-  final double? height;
   final int? maxLines;
   //final Widget? preffixIcon;
 
@@ -24,7 +24,6 @@ class CommonTextFormField extends StatelessWidget {
     this.hintStyle,
     this.labelStyles,
     this.suffixIcon,
-    this.height,
     this.maxLines,
     this.prefixIcon,
     //this.preffixIcon,
@@ -33,10 +32,9 @@ class CommonTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 50,
       child: TextFormField(
-        maxLines: maxLines,
         controller: controller,
+        style: TextStyles.fourteenTSBlack,
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: labelStyles,
@@ -46,26 +44,27 @@ class CommonTextFormField extends StatelessWidget {
           //alignLabelWithHint: true,
           floatingLabelAlignment: FloatingLabelAlignment.start,
           filled: true,
-          fillColor: const Color(0xffF9FAFB),
+          fillColor: CommonColor.textInputBgColor,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: const BorderSide(
-              color: Color(0xffD1D5DB),
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(
+              color: CommonColor.borderColor,
+              width: 1.0,
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Color(0xff1A56DB),
+            borderSide: BorderSide(
+              color: CommonColor.blueColor,
               width: 1.0,
             ),
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(8.0),
           ),
           enabledBorder:  OutlineInputBorder(
             borderSide: BorderSide(
               color: CommonColor.borderColor,
               width: 1.0,
             ),
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(8.0),
           ),
 
         ),

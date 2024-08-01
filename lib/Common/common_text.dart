@@ -95,6 +95,11 @@ class CommonText{
   static String absence  = 'Absence (hours)';
   static String optional  = 'Optional note for extra info';
   static String writeTextHere  = 'Write text here ...';
+  static String version  = 'Version:';
+  static String plzEnterEmail  = 'Please enter email address';
+  static String plzEnterValidEmail  = 'Please enter valid email address';
+  static String plzEnterPass  = 'Please enter valid password';
+  static String passNotMatch  = 'Password not match!';
 
 
 

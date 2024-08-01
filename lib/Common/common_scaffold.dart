@@ -21,16 +21,17 @@ class CommonScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: bgColor,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 28),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 43),
-                child: SvgPicture.asset("assets/images/kabox.svg")
+                padding: const EdgeInsets.only(top: 35),
+                child: SvgPicture.asset("assets/images/kabox_symbol.svg")
               ),
               Expanded(
                 child: body, // Display the provided body widget

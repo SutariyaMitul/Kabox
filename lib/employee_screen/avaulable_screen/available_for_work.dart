@@ -9,21 +9,23 @@ import '../../Common/common_text.dart';
 import '../../Common/common_textfiled.dart';
 import '../../Common/text_style.dart';
 
-class AvaulableForWork extends StatefulWidget {
-  const AvaulableForWork({super.key});
+class AvailableForWork extends StatefulWidget {
+  const AvailableForWork({super.key});
 
   @override
-  State<AvaulableForWork> createState() => _AvaulableForWorkState();
+  State<AvailableForWork> createState() => _AvailableForWorkState();
 }
 
-class _AvaulableForWorkState extends State<AvaulableForWork> {
+class _AvailableForWorkState extends State<AvailableForWork> {
   TextEditingController fromDateController = TextEditingController();
   TextEditingController fromTimeController = TextEditingController();
   TextEditingController utilDateController = TextEditingController();
   TextEditingController utilTimeController = TextEditingController();
   TextEditingController noteController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   bool switchState = true;
+  DateTime? _selectedDate;
 
   @override
   Widget build(BuildContext context) {
@@ -31,47 +33,51 @@ class _AvaulableForWorkState extends State<AvaulableForWork> {
         title: CommonText.availability,
         body: Container(
           height: MediaQuery.of(context).size.height,
-          color: const Color(0xffFFFFFF),
+          color: CommonColor.bgColor,
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(20.0),
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      FlutterSwitch(
-                          value: switchState,
-                          width: 40,
-                          height: 20,
-                          padding: 3.0,
-                          toggleSize: 15.0,
-                          borderRadius: 10.0,
-                          activeColor: const Color(0xff1A56DB),
-                          onToggle: (value) {
-                            if (switchState == true) {
-                              setState(() {
-                                switchState = false;
-                              });
-                            } else {
-                              setState(() {
-                                switchState = true;
-                              });
-                            }
-                          }),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text(
-                          CommonText.fulldDay,
-                          style: TextStyles.fourteenTSBlack,
-                        ),
-                      )
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        FlutterSwitch(
+                            value: switchState,
+                            width: 40,
+                            height: 20,
+                            padding: 3.0,
+                            toggleSize: 15.0,
+                            borderRadius: 10.0,
+                            duration: const Duration(milliseconds: 500),
+                            activeColor: const Color(0xff1A56DB),
+                            onToggle: (value) {
+                              if (switchState == true) {
+                                setState(() {
+                                  switchState = false;
+                                });
+                              } else {
+                                setState(() {
+                                  switchState = true;
+                                });
+                              }
+                            }),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Text(
+                            CommonText.fulldDay,
+                            style: TextStyles.fourteenTSBlack,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                    Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    padding: const EdgeInsets.only(top: 15.0,bottom: 5.0),
                     child: Text(
                       CommonText.from,
                       style: TextStyles.fourteenTSBlack,
@@ -258,7 +264,6 @@ class _AvaulableForWorkState extends State<AvaulableForWork> {
                         fontStyle: FontStyle.normal
                     ),
                     maxLines: 3,
-                    height: 100,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 3.0),

@@ -39,6 +39,7 @@ dependencies:
   flutter_calendar_week: ^3.0.2
   calendar_date_picker2: ^0.3.3
   flutter_switch: ^0.3.2
+  fluttertoast: ^8.2.6
 
 dev_dependencies:
   flutter_test:

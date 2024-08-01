@@ -11,9 +11,9 @@ class CommonBorderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      decoration: BoxDecoration(color: color,borderRadius: BorderRadius.circular(8),border: Border.all(color: borderColor,width: 1)),
-      padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.symmetric(vertical: 4),
+      decoration: BoxDecoration(color: color,borderRadius: BorderRadius.circular(8),border: Border.all(color: borderColor,width: 1,strokeAlign: BorderSide.strokeAlignCenter,)),
+      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       child: child,
     );
   }
