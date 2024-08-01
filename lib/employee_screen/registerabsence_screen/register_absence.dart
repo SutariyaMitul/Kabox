@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:kbox/Common/common_appbar.dart';
-import 'package:kbox/Common/common_bottombar.dart';
 import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_text.dart';
 import 'package:kbox/Common/common_textfiled.dart';

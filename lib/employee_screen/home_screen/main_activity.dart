@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/text_style.dart';
 import 'package:kbox/employee_screen/profile_screen/profile_screen.dart';
 import 'package:kbox/employee_screen/schedule_screen/schedule_screen.dart';
-
-import '../../Common/common_color.dart';
 import 'homescreen.dart';
 
 class MainActivity extends StatefulWidget {
@@ -115,58 +114,61 @@ class _CommonBottomBarState extends State<CommonBottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: CommonColor.white,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/images/home.png',
-              width: 20,
-              height: 20,
-              color: selectedItemIndex == 0
-                  ? const Color(0xff1A56AD)
-                  : CommonColor.grayColor,
+    return SizedBox(
+      height: 65,
+      child: BottomNavigationBar(
+        backgroundColor: CommonColor.white,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                'assets/images/home.png',
+                width: 20,
+                height: 20,
+                color: selectedItemIndex == 0
+                    ? const Color(0xff1A56AD)
+                    : CommonColor.grayColor,
+              ),
+              label: "Home",
             ),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/images/calendar_icon.png',
-              width: 20,
-              height: 20,
-              color: selectedItemIndex == 1
-                  ? const Color(0xff1A56AD)
-                  : CommonColor.grayColor,
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                'assets/images/calendar_icon.png',
+                width: 20,
+                height: 20,
+                color: selectedItemIndex == 1
+                    ? const Color(0xff1A56AD)
+                    : CommonColor.grayColor,
+              ),
+              label: "Schedule",
             ),
-            label: "Schedule",
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/images/profile_icon.png',
-              width: 20,
-              height: 20,
-              color: selectedItemIndex == 2
-                  ? const Color(0xff1A56AD)
-                  : CommonColor.grayColor,
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                'assets/images/profile_icon.png',
+                width: 20,
+                height: 20,
+                color: selectedItemIndex == 2
+                    ? const Color(0xff1A56AD)
+                    : CommonColor.grayColor,
+              ),
+              label: "Profile",
             ),
-            label: "Profile",
+          ],
+          currentIndex: 0,
+          selectedFontSize: 14,
+          unselectedFontSize: 14,
+          selectedItemColor: CommonColor.blueColor,
+          unselectedItemColor: CommonColor.grayColor,
+          selectedLabelStyle: TextStyles.fourteenTSGreen,
+          unselectedLabelStyle: TextStyles.fourteenTSGreen,
+          onTap: widget.onTap
+          /*(int index) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+                builder: (context) => MainActivity(selectedIndex: index)),
+                (route) => false,
+          );
+        },*/
           ),
-        ],
-        currentIndex: 0,
-        selectedFontSize: 14,
-        unselectedFontSize: 14,
-        selectedItemColor: CommonColor.blueColor,
-        unselectedItemColor: CommonColor.grayColor,
-        selectedLabelStyle: TextStyles.fourteenTSGreen,
-        unselectedLabelStyle: TextStyles.fourteenTSGreen,
-        onTap: widget.onTap
-        /*(int index) {
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-              builder: (context) => MainActivity(selectedIndex: index)),
-              (route) => false,
-        );
-      },*/
-        );
+    );
   }
 }

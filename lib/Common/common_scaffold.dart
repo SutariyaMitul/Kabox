@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kbox/Common/common_color.dart';
 
 class CommonScaffold extends StatelessWidget {
   final String? title;

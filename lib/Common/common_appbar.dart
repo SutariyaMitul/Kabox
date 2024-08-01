@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kbox/Common/text_style.dart';
-import 'package:kbox/employee_screen/home_screen/homescreen.dart';
-import 'package:kbox/employee_screen/profile_screen/profile_screen.dart';
-import 'package:kbox/employee_screen/schedule_screen/schedule_screen.dart';
-
 import 'common_color.dart';
 
 class CommonAppbar extends StatefulWidget {
@@ -13,6 +9,7 @@ class CommonAppbar extends StatefulWidget {
   final List<Widget>? actions;
   final FloatingActionButton? floatingActionButton;
   final Widget? bottomNavigationBar;
+  final PreferredSizeWidget? bottom;
 
   const CommonAppbar(
       {super.key,
@@ -20,7 +17,7 @@ class CommonAppbar extends StatefulWidget {
       required this.body,
       this.centerTitle,
       this.floatingActionButton,
-      this.actions, this.bottomNavigationBar});
+      this.actions, this.bottomNavigationBar, this.bottom});
 
   @override
   State<CommonAppbar> createState() => _CommonAppbarState();
@@ -33,6 +30,7 @@ class _CommonAppbarState extends State<CommonAppbar> {
       //backgroundColor: CommonColor.bgColor,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        bottom: widget.bottom,
         backgroundColor: CommonColor.blueColor,
         actions: widget.actions,
         leadingWidth: 30,

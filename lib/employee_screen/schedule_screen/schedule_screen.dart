@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:kbox/employee_screen/workscheduldetail_screen/work_schedule_detail.dart';
-
 import '../../Common/common_border_container.dart';
 import '../../Common/common_color.dart';
 import '../../Common/text_style.dart';
@@ -133,15 +132,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   size: 5,
                 ),
               ),
-              // DecorationItem(
-              //     date: DateTime.now().add(const Duration(days: 3)),
-              //     decoration: const Text(
-              //       'Holiday',
-              //       style: TextStyle(
-              //         color: Colors.brown,
-              //         fontWeight: FontWeight.w600,
-              //       ),
-              //     )),
             ],
           ),
           Expanded(

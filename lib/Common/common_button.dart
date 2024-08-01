@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kbox/Common/text_style.dart';
-
 import 'common_color.dart';
 
 class CommonButton extends StatelessWidget {

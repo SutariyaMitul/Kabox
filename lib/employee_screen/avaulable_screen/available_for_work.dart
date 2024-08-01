@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
-
 import '../../Common/common_appbar.dart';
-import '../../Common/common_color.dart';
 import '../../Common/common_text.dart';
 import '../../Common/common_textfiled.dart';
 import '../../Common/text_style.dart';

@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
+import 'package:kbox/employee_screen/viewdirections_screen/viewdirection_screen.dart';
 import '../../Common/common_appbar.dart';
 import '../../Common/common_button.dart';
 import '../../Common/common_color.dart';
@@ -83,55 +83,70 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail>
         },
       ),
       actions: [
-        Container(
-          //constraints: const BoxConstraints(maxHeight: 150.0),
-          height: 35,
-          width: 250,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(3),
-            child: TabBar(
-              indicator: BoxDecoration(
-                color: CommonColor.blueWhiteColor,
-                borderRadius: BorderRadius.circular(8)
+        Padding(
+          padding: const EdgeInsets.only(right: 3),
+          child: Container(
+            //constraints: const BoxConstraints(maxHeight: 150.0),
+            alignment: Alignment.centerRight,
+            height: 35,
+            width: 250,
+            decoration: BoxDecoration(
+              color: CommonColor.white,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 3, bottom: 3),
+              child: TabBar(
+                indicator: BoxDecoration(
+                    color: CommonColor.blueWhiteColor,
+                    borderRadius: BorderRadius.circular(8)),
+                controller: _tabController,
+                dividerHeight: 00,
+                labelColor: CommonColor.white,
+                unselectedLabelColor: CommonColor.darkGreyColor,
+                labelStyle: TextStyles.twelveTSGrey,
+                padding: EdgeInsets.zero,
+                labelPadding: const EdgeInsets.all(6),
+                tabs: [
+                  Tab(
+                    child: Container(
+                      height: 43,
+                      width: 70,
+                      decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                      child: const Center(
+                        child: Text("info"),
+                      ),
+                    ),
+                  ),
+                  Tab(
+                    child: Container(
+                      height: 43,
+                      width: 70,
+                      decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                      child: const Center(
+                        child: Text("Files(3)"),
+                      ),
+                    ),
+                  ),
+                  Tab(
+                    child: Container(
+                      height: 43,
+                      width: 110,
+                      decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                      child: const Center(
+                        child: Text("Checklist (1)"),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              controller: _tabController,
-              //isScrollable: true,
-              dividerHeight: 00,
-              labelColor: CommonColor.white,
-              unselectedLabelColor: Colors.grey,
-              automaticIndicatorColorAdjustment: true,
-              indicatorColor: Colors.green,
-              labelStyle: TextStyles.twelveTSGrey,
-              padding: EdgeInsets.zero,
-              tabs: const [
-                Tab(
-                  text: "info",
-                ),
-                Tab(
-                  text: "Files(3)",
-                ),
-                Tab(
-                  text: "Checklist(1)",
-                )
-              ],
             ),
           ),
         ),
       ],
-      /*floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: CommonColor.colorBlue,
-        shape: const CircleBorder(),
-        child: SvgPicture.asset(
-          "assets/images/add_photo.svg",
-          height: 22,
-          width: 22,
-        ),
-      ),*/
       body: SingleChildScrollView(
         child: Container(
           color: CommonColor.lightGreyColor,
@@ -346,26 +361,35 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail>
                               //const Spacer(),
                               Padding(
                                 padding: const EdgeInsets.only(right: 15),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      CommonText.viewdirection,
-                                      style: TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w500,
-                                          color: CommonColor.blueWhiteColor,
-                                          fontFamily: "Inter",
-                                          fontStyle: FontStyle.normal),
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    SvgPicture.asset(
-                                      "assets/images/arrow_right.svg",
-                                      width: 10,
-                                      height: 10,
-                                    ),
-                                  ],
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ViewDirectionScreen()),
+                                    );
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        CommonText.viewdirection,
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w500,
+                                            color: CommonColor.blueWhiteColor,
+                                            fontFamily: "Inter",
+                                            fontStyle: FontStyle.normal),
+                                      ),
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      SvgPicture.asset(
+                                        "assets/images/arrow_right.svg",
+                                        width: 10,
+                                        height: 10,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -420,7 +444,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail>
                 color: Colors.white,
                 margin: const EdgeInsets.only(bottom: 12),
                 child: Padding(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                       left: 20.0, right: 15, top: 15, bottom: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -456,7 +480,7 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail>
                 color: Colors.white,
                 margin: const EdgeInsets.only(bottom: 12),
                 child: Padding(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                       left: 20.0, right: 15, top: 15, bottom: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
