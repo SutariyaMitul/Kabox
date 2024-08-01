@@ -13,6 +13,7 @@ class CommonTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final int? maxLines;
+  final bool? enabled;
   //final Widget? preffixIcon;
 
   CommonTextFormField({
@@ -26,6 +27,7 @@ class CommonTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.maxLines,
     this.prefixIcon,
+    this.enabled,
     //this.preffixIcon,
   });
 
@@ -35,6 +37,7 @@ class CommonTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         style: TextStyles.fourteenTSBlack,
+        enabled: enabled?? true,
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: labelStyles,
