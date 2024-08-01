@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_date_picker.dart';
 import 'package:kbox/Common/common_time_picker.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
@@ -226,7 +227,7 @@ class _AvailableForWorkState extends State<AvailableForWork> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: const EdgeInsets.only(top: 14.0,bottom: 8),
                     child: Text(
                       CommonText.until,
                       style: TextStyles.fourteenTSBlack,
@@ -321,7 +322,7 @@ class _AvailableForWorkState extends State<AvailableForWork> {
                     ),
                   ),
                    Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: const EdgeInsets.only(top: 16.0,bottom: 8.0),
                     child: Text(
                       CommonText.note,
                       style: TextStyles.fourteenTSBlack,

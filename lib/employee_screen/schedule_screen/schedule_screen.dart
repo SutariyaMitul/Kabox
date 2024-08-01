@@ -162,8 +162,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 //     )),
               ],
             ),
-              ),
-            ],
           ),
           Expanded(
             child: ListView.builder(
