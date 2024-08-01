@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:kbox/employee_screen/workscheduldetail_screen/work_schedule_detail.dart';
 import '../../Common/common_border_container.dart';
 import '../../Common/common_color.dart';
@@ -60,18 +62,20 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           actions: [
             Container(
               margin: const EdgeInsets.only(right: 20),
+              height: 37,
+              width: 88,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(8)),
               padding: const EdgeInsets.all(8),
               child:  Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.calendar_month,
                     size: 20,
                     color: Colors.black,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 4.0),
+                    padding: EdgeInsets.only(left: 4.0),
                     child: Text(
                       'Today',
                       style: TextStyles.fourteenTSBlack,
@@ -134,137 +138,142 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               ),
             ],
           ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: 5,
-              padding: const EdgeInsets.all(15),
-              itemBuilder: (context, index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Monday',
-                            style: TextStyles.eighteenTSBlackSemiBold,
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                ListView.builder(
+                  shrinkWrap: true,physics: const NeverScrollableScrollPhysics(),
+                  //physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 5,
+                  padding: const EdgeInsets.all(15),
+                  itemBuilder: (context, index) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Monday',
+                                style: TextStyles.eighteenTSBlackSemiBold,
+                              ),
+                               Text(
+                                '7:30h',
+                                style: TextStyles.fourteenTSGrey,
+                              ),
+                            ],
                           ),
-                           Text(
-                            '7:30h',
-                            style: TextStyles.fourteenTSGrey,
+                        ),
+                        InkWell(
+                          child: CommonBorderContainer(
+                            color: CommonColor.skyGreenLight,
+                            width: width,
+                            borderColor: CommonColor.greenColor,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 3.0),
+                                  child: Text(
+                                    '08:00 - 11:30',
+                                    style: TextStyle(
+                                        color: CommonColor.greenColor,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 3.0),
+                                  child: Text(
+                                    'Jane Smith',
+                                    style: TextStyle(
+                                        color: CommonColor.greenColor,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 3.0),
+                                  child: Text(
+                                    'Huskvarnavägen 62, Jönköping',
+                                    style: TextStyle(
+                                        color: CommonColor.greenColor,
+                                        fontSize: 14),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                    InkWell(
-                      child: CommonBorderContainer(
-                        color: CommonColor.skyGreenLight,
-                        width: width,
-                        borderColor: CommonColor.greenColor,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 3.0),
-                              child: Text(
-                                '08:00 - 11:30',
-                                style: TextStyle(
-                                    color: CommonColor.greenColor,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 3.0),
-                              child: Text(
-                                'Jane Smith',
-                                style: TextStyle(
-                                    color: CommonColor.greenColor,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 3.0),
-                              child: Text(
-                                'Huskvarnavägen 62, Jönköping',
-                                style: TextStyle(
-                                    color: CommonColor.greenColor,
-                                    fontSize: 14),
-                              ),
-                            ),
-                          ],
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const WorkScheduleDetail(),
+                                ));
+                          },
                         ),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const WorkScheduleDetail(),
-                            ));
-                      },
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const WorkScheduleDetail(),
-                            ));
-                      },
-                      child: CommonBorderContainer(
-                        color: CommonColor.blueLight,
-                        width: width,
-                        borderColor: CommonColor.blueColor,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 3.0),
-                              child: Text(
-                                '08:00 - 11:30',
-                                style: TextStyle(
-                                    color: CommonColor.blueColor,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const WorkScheduleDetail(),
+                                ));
+                          },
+                          child: CommonBorderContainer(
+                            color: CommonColor.blueLight,
+                            width: width,
+                            borderColor: CommonColor.blueColor,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 3.0),
+                                  child: Text(
+                                    '08:00 - 11:30',
+                                    style: TextStyle(
+                                        color: CommonColor.blueColor,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 3.0),
+                                  child: Text(
+                                    'Jane Smith',
+                                    style: TextStyle(
+                                        color: CommonColor.blueColor,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 3.0),
+                                  child: Text(
+                                    'Huskvarnavägen 62, Jönköping',
+                                    style: TextStyle(
+                                        color: CommonColor.blueColor, fontSize: 14),
+                                  ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 3.0),
-                              child: Text(
-                                'Jane Smith',
-                                style: TextStyle(
-                                    color: CommonColor.blueColor,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 3.0),
-                              child: Text(
-                                'Huskvarnavägen 62, Jönköping',
-                                style: TextStyle(
-                                    color: CommonColor.blueColor, fontSize: 14),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                  ],
-                );
-              },
+                      ],
+                    );
+                  },
+                ),
+              ],
             ),
-          )
+          ),
         ],
       ),
     );
