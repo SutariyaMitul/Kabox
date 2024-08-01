@@ -6,7 +6,9 @@ class CommonInfoItem extends StatelessWidget {
   final String? description;
   final TextStyle? textStyle;
   final double? bottomMargin;
-  const CommonInfoItem({super.key,required this.svgPath,this.description,this.textStyle,this.bottomMargin});
+  final double? height;
+  final double? width;
+  const CommonInfoItem({super.key,required this.svgPath,this.description,this.textStyle,this.bottomMargin, this.height, this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class CommonInfoItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SvgPicture.asset(svgPath,height: 19,width: 19,fit: BoxFit.fill,),
+          SvgPicture.asset(svgPath,height: height ?? 19,width: width ?? 19,fit: BoxFit.fill,),
           const SizedBox(width: 8,),
           Expanded(child: Text(description!,style: textStyle,softWrap: true,),),
         ],

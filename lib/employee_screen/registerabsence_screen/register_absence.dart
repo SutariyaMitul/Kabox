@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:kbox/Common/common_appbar.dart';
+import 'package:kbox/Common/common_bottombar.dart';
 import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_text.dart';
 import 'package:kbox/Common/common_textfiled.dart';
 import 'package:kbox/Common/text_style.dart';
+import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
 class RegisterAbsence extends StatefulWidget {
   const RegisterAbsence({super.key});
@@ -34,6 +36,16 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
     final double width = MediaQuery.of(context).size.width;
 
     return CommonAppbar(
+      //bottomNavigationBar: const CommonBottomBar(),
+      bottomNavigationBar: CommonBottomBar(
+        onTap: (int index) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+                builder: (context) => MainActivity(selectedIndex: index)),
+                (route) => false,
+          );
+        },
+      ),
       title: CommonText.registerabsence,
       centerTitle: true,
       body: Container(

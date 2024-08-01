@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
 import '../../Common/common_appbar.dart';
 import '../../Common/common_color.dart';
@@ -31,6 +32,15 @@ class _AvailableForWorkState extends State<AvailableForWork> {
   Widget build(BuildContext context) {
     return CommonAppbar(
         title: CommonText.availability,
+        bottomNavigationBar: CommonBottomBar(
+          onTap: (int index) {
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                  builder: (context) => MainActivity(selectedIndex: index)),
+              (route) => false,
+            );
+          },
+        ),
         body: Container(
           height: MediaQuery.of(context).size.height,
           color: CommonColor.bgColor,

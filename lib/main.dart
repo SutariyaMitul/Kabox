@@ -7,6 +7,8 @@ import 'employee_screen/choosepassword_screen/checkemail_screen.dart';
 import 'employee_screen/choosepassword_screen/choosepasword_screen.dart';
 import 'employee_screen/choosepassword_screen/forget_screen.dart';
 import 'login_screen/Login_Screen.dart';
+import 'package:kbox/Common/common_bottombar.dart';
+import 'employee_screen/home_screen/main_activity.dart';
 
 void main() {
   runApp(const MyApp());
