@@ -29,6 +29,7 @@ class _CommonAppbarState extends State<CommonAppbar> {
     return Scaffold(
       //backgroundColor: CommonColor.bgColor,
       resizeToAvoidBottomInset: false,
+      backgroundColor: CommonColor.bgColor,
       appBar: AppBar(
         bottom: widget.bottom,
         backgroundColor: CommonColor.blueColor,

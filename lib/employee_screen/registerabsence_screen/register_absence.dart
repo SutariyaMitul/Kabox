@@ -3,8 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:kbox/Common/common_appbar.dart';
 import 'package:kbox/Common/common_color.dart';
+import 'package:kbox/Common/common_date_picker.dart';
 import 'package:kbox/Common/common_text.dart';
 import 'package:kbox/Common/common_textfiled.dart';
+import 'package:kbox/Common/common_time_picker.dart';
 import 'package:kbox/Common/text_style.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
@@ -28,6 +30,30 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
   TextEditingController timeController = TextEditingController();
 
   bool daySwitchStatus = true;
+
+  DateTime? selectedDate;
+  TimeOfDay? selectedTime;
+  DateTime? selectedUntilDate;
+  TimeOfDay? selectedUntilTime;
+
+  void _selectDate() async {
+    final DateTime? picked = await CommonDatePicker.showDatePickerDialog(context);
+    if (picked != null) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+
+  void _selectTime() async {
+    final TimeOfDay? picked = await CommonTimePicker.showTimePickerDialog(context);
+    if (picked != null) {
+      setState(() {
+        selectedTime = picked;
+      });
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -99,17 +125,22 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                     style: TextStyles.fourteenTSBlackMedium,
                   ),
                 ),
-                CommonTextFormField(
-                  height: 42,
-                  controller: dateController,
-                  labelText: CommonText.from,
-                  labelStyles: TextStyles.fourteenTSGrey,
-                  prefixIcon: SvgPicture.asset(
-                    'assets/images/calendar.svg',
-                    width: 14,
-                    height: 14,
-                    fit: BoxFit.scaleDown,
-                    alignment: Alignment.center,
+                GestureDetector(
+                  onTap: () {
+                    _selectDate();
+                  },
+                  child: CommonTextFormField(
+                    controller: dateController,
+                    labelText: CommonText.from,
+                    labelStyles: TextStyles.fourteenTSGrey,
+                    enabled: false,
+                    prefixIcon: SvgPicture.asset(
+                      'assets/images/calendar.svg',
+                      width: 14,
+                      height: 14,
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.center,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -157,7 +188,6 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                   ),
                 ),
                 CommonTextFormField(
-                  height: 42,
                   controller: dateController,
                   labelText: '08:00',
                   labelStyles: TextStyles.fourteenTSGrey,
@@ -181,7 +211,6 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                   controller: dateController,
                   labelText: CommonText.writeTextHere,
                   labelStyles: TextStyles.fourteenTSGrey,
-                  height: 100,
                   maxLines: 5,
                 ),
                 Padding(

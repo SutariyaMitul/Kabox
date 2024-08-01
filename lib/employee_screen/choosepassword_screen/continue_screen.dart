@@ -19,12 +19,13 @@ class _ContinueScreenState extends State<ContinueScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 83,),
              Text(
                 CommonText.greatNow,
                 style: TextStyles.eighteenTSBlack
             ),
             const SizedBox(
-              height: 25,
+              height: 12,
             ),
              Text(
              CommonText.mobileDevice,
@@ -32,7 +33,7 @@ class _ContinueScreenState extends State<ContinueScreen> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 25),
+              padding: const EdgeInsets.only(top: 36),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -40,15 +40,14 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
+               Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   CommonText.date,
                   style: TextStyles.fourteenTSBlack,
                 ),
               ),
               CommonTextFormField(
-                  height: 42,
                   controller: dateController,
                   labelText: CommonText.selectDate,
                   labelStyles: TextStyles.fourteenTSGreySemi,
@@ -64,7 +63,6 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
                 ),
               ),
               CommonTextFormField(
-                height: 42,
                 controller: milesController,
                 labelText: '12345',
                 labelStyles: TextStyles.fourteenTSGreySemi,
@@ -79,7 +77,7 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
               const SizedBox(
                 height: 15,
               ),
-              Padding(
+               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   CommonText.note,
@@ -91,7 +89,6 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
                 labelText: CommonText.write_text_here,
                 labelStyles: TextStyles.fourteenTSGreySemi,
                 maxLines: 3,
-                height: 100,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
