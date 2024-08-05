@@ -20,7 +20,7 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CommonScaffold(
-        bgColor: CommonColor.bgColor,
+        bgColor: CommonColor.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

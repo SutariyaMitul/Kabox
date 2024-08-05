@@ -6,6 +6,7 @@ import 'package:kbox/Common/common_textfiled.dart';
 import 'package:kbox/employee_screen/choosepassword_screen/choosepasword_screen.dart';
 import 'package:kbox/employee_screen/choosepassword_screen/forget_screen.dart';
 import 'package:kbox/employee_screen/home_screen/homescreen.dart';
+import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
 import '../Common/text_style.dart';
 
@@ -27,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CommonScaffold(
-        bgColor: CommonColor.bgColor,
+        bgColor: CommonColor.white,
         body: Padding(
           padding: const EdgeInsets.only(top: 90),
           child: Form(
@@ -113,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: InkWell(
                         onTap: () {
                           if(_formKey.currentState!.validate()){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => MainActivity(),));
                           }
                         },
                         child: Container(

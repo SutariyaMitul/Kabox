@@ -83,6 +83,8 @@ class CommonText{
   static String until = 'Until';
   static String storage = 'Storage';
   static String camera = 'Camera';
+  static String allowed = 'Allowed';
+  static String notAllowed = 'Not Allowed';
   static String location = 'Location';
   static String policyinfo = 'App and policyinformation';
   static String integritypolicypolicy = 'Integritypolicy and user policy';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_scaffold.dart';
 import 'package:kbox/Common/common_text.dart';
 import 'package:kbox/Common/text_style.dart';
@@ -15,6 +16,7 @@ class _PasswordResetState extends State<PasswordReset> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CommonScaffold(
+        bgColor: CommonColor.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

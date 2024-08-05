@@ -55,12 +55,12 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
         height: MediaQuery.of(context).size.height,
         color: CommonColor.white,
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   CommonText.date,
                   style: TextStyles.fourteenTSBlack,
@@ -104,7 +104,7 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -118,7 +118,7 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
                 height: 42,
                 child: CommonTextFormField(
                   controller: milesController,
-                  labelText: '12345',
+                  hintText: '12345',
                   labelStyles: TextStyles.fourteenTSGreySemi,
                 ),
               ),
@@ -139,12 +139,48 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
                   style: TextStyles.fourteenTSBlack,
                 ),
               ),
-              CommonTextFormField(
-                controller: noteController,
-                labelText: CommonText.write_text_here,
-                labelStyles: TextStyles.fourteenTSGreySemi,
-                maxLines: 3,
+
+
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 85,
+                decoration: ShapeDecoration(
+                  color: CommonColor.textInputBgColor,
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(
+                        width: 1, color: Color(0xFFD1D5DB)),
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: TextFormField(
+                    controller: noteController,
+                    textAlign: TextAlign.start,
+                    style: TextStyles.fourteenTSBlack,
+                    keyboardType: TextInputType.multiline,
+                    maxLines: null,
+                    decoration: InputDecoration(
+                      hintStyle: TextStyles.fourteenTSGrey,
+                      hintText: CommonText.write_text_here,
+                      contentPadding: const EdgeInsets.all(10),
+                      //alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.start,
+                      filled: true,
+                      fillColor: CommonColor.textInputBgColor,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
               ),
+
+              // CommonTextFormField(
+              //   controller: noteController,
+              //   labelText: CommonText.write_text_here,
+              //   labelStyles: TextStyles.fourteenTSGreySemi,
+              //   hintText: CommonText.write_text_here,
+              //   maxLines: 3,
+              // ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(

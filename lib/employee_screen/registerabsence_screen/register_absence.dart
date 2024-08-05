@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -29,6 +30,7 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
 
   TextEditingController dateController = TextEditingController();
   TextEditingController timeController = TextEditingController();
+  TextEditingController noteController = TextEditingController();
 
   bool daySwitchStatus = true;
 
@@ -80,9 +82,9 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
       centerTitle: true,
       body: Container(
         height: MediaQuery.of(context).size.height,
-        color: const Color(0xffFFFFFF),
+        color: CommonColor.white,
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(20.0),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
@@ -270,12 +272,39 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                     style: TextStyles.fourteenTSBlackMedium,
                   ),
                 ),
-                CommonTextFormField(
-                  controller: dateController,
-                  labelText: CommonText.writeTextHere,
-                  labelStyles: TextStyles.fourteenTSGrey,
-                  maxLines: 5,
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 85,
+                  decoration: ShapeDecoration(
+                    color: CommonColor.textInputBgColor,
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                          width: 1, color: Color(0xFFD1D5DB)),
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(1.0),
+                    child: TextFormField(
+                      controller: noteController,
+                      textAlign: TextAlign.start,
+                      style: TextStyles.fourteenTSBlack,
+                      keyboardType: TextInputType.multiline,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                        hintStyle: TextStyles.fourteenTSGrey,
+                        hintText: CommonText.write_text_here,
+                        contentPadding: const EdgeInsets.all(10),
+                        //alignLabelWithHint: true,
+                        floatingLabelAlignment: FloatingLabelAlignment.start,
+                        filled: true,
+                        fillColor: CommonColor.textInputBgColor,
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                 ),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),
                   child: Text(
@@ -283,7 +312,7 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                     style: TextStyles.twelveTSGrey,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 )
               ],

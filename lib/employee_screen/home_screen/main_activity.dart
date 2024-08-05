@@ -40,11 +40,13 @@ class _MainActivityState extends State<MainActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: CommonColor.white,
+        //backgroundColor: CommonColor.white,
         //currentIndex: selectedItemIndex,
         items: [
           BottomNavigationBarItem(
+            backgroundColor: Colors.red,
             icon: Image.asset(
               'assets/images/home.png',
               width: 20,

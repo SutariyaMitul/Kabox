@@ -22,7 +22,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CommonScaffold(
-        bgColor: CommonColor.bgColor,
+        bgColor: CommonColor.white,
         body: Form(
           key: _formKey,
           child: Column(

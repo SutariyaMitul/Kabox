@@ -55,105 +55,103 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyles.twentyTSWhite,
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(14),
-                          boxShadow: [
-                            BoxShadow(
-                              color: CommonColor.lightGrey,
-                              blurRadius: 4,
-                            )
-                          ]),
-                      padding:
-                          const EdgeInsets.only(left: 25, right: 25, top: 22),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Du har inga projekt idag",
-                            style: TextStyles.sixteenTSBlack,
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Expanded(
-                                child: CommonContainer(
-                                  radius: 8,
-                                  color: CommonColor.greenLight,
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 12),
-                                        child: Text(
-                                          "8 h",
-                                          style: TextStyles.twentyTSGreen,
+                    Card(
+                      color: CommonColor.white,
+                      elevation: 4,
+                      shadowColor: Color(0xffececec),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(23.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Du har inga projekt idag",
+                              style: TextStyles.sixteenTSBlack,
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Expanded(
+                                  child: CommonContainer(
+                                    radius: 8,
+                                    color: CommonColor.greenLight,
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 12),
+                                          child: Text(
+                                            "8 h",
+                                            style: TextStyles.twentyTSGreen,
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 2, bottom: 12),
-                                        child: Text(
-                                          "Scheduled work",
-                                          style: TextStyles.fourteenTSGreen,
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 2, bottom: 12),
+                                          child: Text(
+                                            "Scheduled work",
+                                            style: TextStyles.fourteenTSGreen,
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Expanded(
-                                child: CommonContainer(
-                                  radius: 8,
-                                  color: CommonColor.blueLight,
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 12),
-                                        child: Text(
-                                          "0 h",
-                                          style: TextStyles.twentyTSBlue,
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Expanded(
+                                  child: CommonContainer(
+                                    radius: 8,
+                                    color: CommonColor.blueLight,
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 12),
+                                          child: Text(
+                                            "0 h",
+                                            style: TextStyles.twentyTSBlue,
+                                          ),
                                         ),
-                                      ),
-                                       Padding(
-                                        padding: EdgeInsets.only(
-                                            top: 2.0, bottom: 12),
-                                        child: Text(
-                                          "Clocked in time",
-                                          style: TextStyles.fourteenTSBlue,
+                                         Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 2.0, bottom: 12),
+                                          child: Text(
+                                            "Clocked in time",
+                                            style: TextStyles.fourteenTSBlue,
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(top: 17.0, bottom: 23),
-                            child: CommonContainer(
-                              radius: 8,
-                              color: CommonColor.blueColor,
-                              child: Center(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 12),
-                                  child: Text(
-                                    CommonText.gotoMySchedule,
-                                    style: TextStyles.sixteenTSWhite,
+                              ],
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 17.0),
+                              child: CommonContainer(
+                                radius: 8,
+                                color: CommonColor.blueColor,
+                                child: Center(
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 13),
+                                    child: Text(
+                                      CommonText.gotoMySchedule,
+                                      style: TextStyles.sixteenTSWhite,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(

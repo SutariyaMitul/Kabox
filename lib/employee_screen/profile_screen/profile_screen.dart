@@ -7,6 +7,7 @@ import 'package:kbox/Common/common_text.dart';
 import 'package:kbox/Common/text_style.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -14,8 +15,137 @@ class ProfileScreen extends StatefulWidget {
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
-
 class _ProfileScreenState extends State<ProfileScreen> {
+
+  bool _isPermissionGranted = false;
+  bool _isStoragePermissionGranted = false;
+  bool _isLocationPermissionGranted = false;
+  bool isGranted = false;
+  bool isLocationGranted = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkStoredPermission();
+    _checkCameraPermission();
+    _checkLocationPermission();
+  }
+
+  Future<void> _checkStoredPermission() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? isStorageGranted = prefs.getBool('storage_permission_granted');
+    setState(() {
+      _isStoragePermissionGranted = isStorageGranted!;
+    });
+  }
+
+  Future<void> _checkCameraPermission() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? isGranted = prefs.getBool('camera_permission_granted');
+    setState(() {
+      _isPermissionGranted = isGranted!;
+    });
+  }
+
+  Future<void> _checkLocationPermission() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? isLocationGranted = prefs.getBool('location_permission_granted');
+    setState(() {
+      _isLocationPermissionGranted = isLocationGranted!;
+    });
+  }
+
+  Future<void> _requestCameraPermission() async {
+    PermissionStatus status = await Permission.camera.request();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (status.isGranted) {
+      print("Camera permission granted");
+      await prefs.setBool('camera_permission_granted', true);
+      setState(() {
+        _isPermissionGranted = true;
+      });
+    } else if (status.isDenied) {
+      print("Camera permission denied");
+      await prefs.setBool('camera_permission_granted', false);
+      setState(() {
+        _isPermissionGranted = false;
+      });
+    } else if (status.isPermanentlyDenied) {
+      print("Camera permission permanently denied");
+      await prefs.setBool('camera_permission_granted', false);
+      await openAppSettings();
+      setState(() {
+        _isPermissionGranted = false;
+      });
+    }
+  }
+
+  Future<void> _requestStoragePermission() async {
+    PermissionStatus status = await Permission.storage.request();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (status.isGranted) {
+      print("Storage permission granted");
+      await prefs.setBool('storage_permission_granted', true);
+      setState(() {
+        _isStoragePermissionGranted = true;
+      });
+      _accessExternalStorage();
+    } else if (status.isDenied) {
+      print("Storage permission denied");
+      await prefs.setBool('storage_permission_granted', false);
+      setState(() {
+        _isStoragePermissionGranted = false;
+      });
+    } else if (status.isPermanentlyDenied) {
+      print("Storage permission permanently denied");
+      await prefs.setBool('storage_permission_granted', false);
+      await openAppSettings();
+      setState(() {
+        _isStoragePermissionGranted = false;
+      });
+    }
+  }
+
+  Future<void> _accessExternalStorage() async {
+    Directory? directory = await getExternalStorageDirectory();
+    if (directory != null) {
+      print("External storage directory: ${directory.path}");
+      File file = File('${directory.path}/example.txt');
+      await file.writeAsString('Hello, Flutter!');
+      print("File written: ${file.path}");
+      String contents = await file.readAsString();
+      print("File contents: $contents");
+    } else {
+      print("Could not access external storage directory");
+    }
+  }
+
+  Future<void> _requestLocationPermission() async {
+    PermissionStatus status = await Permission.location.request();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (status.isGranted) {
+      print("Location permission granted");
+      await prefs.setBool('location_permission_granted', true);
+      setState(() {
+        _isLocationPermissionGranted = true;
+      });
+    } else if (status.isDenied) {
+      print("Location permission denied");
+      await prefs.setBool('location_permission_granted', false);
+      setState(() {
+        _isLocationPermissionGranted = false;
+      });
+    } else if (status.isPermanentlyDenied) {
+      print("Location permission permanently denied");
+      await prefs.setBool('location_permission_granted', false);
+      await openAppSettings();
+      setState(() {
+        _isLocationPermissionGranted = false;
+      });
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -239,12 +369,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           InkWell(
                             onTap: ()async {
-                              await requestStoragePermission();
-                              await accessExternalStorage();
+                              await _requestStoragePermission();
+                              // await accessExternalStorage();
                             },
                             child: Text(
-                              "Not Allow",
-                              style: TextStyles.sixteenRedRegular,
+                              _isStoragePermissionGranted ? CommonText.allowed : CommonText.notAllowed,
+                              style: _isStoragePermissionGranted? TextStyles.sixteenGreenRegular: TextStyles.sixteenRedRegular,
                             ),
                           ),
                         ],
@@ -262,11 +392,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           InkWell(
                             onTap: () {
-                              requestCameraPermission();
+                              _requestCameraPermission();
                             },
                             child: Text(
-                              "Not Allow",
-                              style: TextStyles.sixteenRedRegular,
+                              _isPermissionGranted? CommonText.allowed : CommonText.notAllowed,
+                              style: _isPermissionGranted ? TextStyles.sixteenGreenRegular : TextStyles.sixteenRedRegular,
                             ),
                           ),
                         ],
@@ -284,11 +414,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           InkWell(
                             onTap: () async {
-                              //requestLocationPermission();
+                              _requestLocationPermission();
                             },
                             child: Text(
-                              "Not Allow",
-                              style: TextStyles.sixteenRedRegular,
+                              _isLocationPermissionGranted? CommonText.allowed : CommonText.notAllowed,
+                              style: _isLocationPermissionGranted ? TextStyles.sixteenGreenRegular : TextStyles.sixteenRedRegular,
                             ),
                           ),
                         ],

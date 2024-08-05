@@ -317,4 +317,11 @@ class TextStyles {
       color: CommonColor.red,
       fontFamily: "inter",
       fontStyle: FontStyle.normal);
+
+  static TextStyle sixteenGreenRegular = TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: CommonColor.darkGreenText,
+      fontFamily: "inter",
+      fontStyle: FontStyle.normal);
 }
