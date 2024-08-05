@@ -38,7 +38,8 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
   TimeOfDay? selectedUntilTime;
 
   void _selectDate() async {
-    final DateTime? picked = await CommonDatePicker.showDatePickerDialog(context);
+    final DateTime? picked =
+        await CommonDatePicker.showDatePickerDialog(context);
     if (picked != null) {
       setState(() {
         selectedDate = picked;
@@ -47,32 +48,33 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
   }
 
   void _selectTime() async {
-    final TimeOfDay? picked = await CommonTimePicker.showTimePickerDialog(context);
+    final TimeOfDay? picked =
+        await CommonTimePicker.showTimePickerDialog(context);
     if (picked != null) {
       setState(() {
         selectedTime = picked;
       });
     }
   }
+
   static String formatDate(DateTime date) {
     final formatter = DateFormat('dd/MM/yyyy');
     return formatter.format(date);
   }
 
+  String? _selectedValue;
 
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-
     return CommonAppbar(
-      //bottomNavigationBar: const CommonBottomBar(),
       bottomNavigationBar: CommonBottomBar(
         onTap: (int index) {
           Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
                 builder: (context) => MainActivity(selectedIndex: index)),
-                (route) => false,
+            (route) => false,
           );
         },
       ),
@@ -88,9 +90,10 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Text(CommonText.typeOfAbsence,
+                  child: Text(
+                    CommonText.typeOfAbsence,
                     style: TextStyles.fourteenTSBlackMedium,
                   ),
                 ),
@@ -98,14 +101,15 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                   height: 42,
                   width: width,
                   decoration: BoxDecoration(
-                    color: const Color(0xffF9FAFB),
+                      color: const Color(0xffF9FAFB),
                       borderRadius: BorderRadius.circular(8),
-                      border:
-                          Border.all(color: CommonColor.borderColor, width: 1.0)),
+                      border: Border.all(
+                          color: CommonColor.borderColor, width: 1.0)),
                   padding: const EdgeInsets.symmetric(horizontal: 12.0),
                   child: DropdownButton<String>(
-
+                    dropdownColor: CommonColor.white,
                     borderRadius: BorderRadius.circular(10),
+                    value: _selectedValue,
                     isExpanded: true,
                     underline: const SizedBox(),
                     hint: Text(
@@ -118,13 +122,15 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                         child: Text(value),
                       );
                     }).toList(),
-                    onChanged: (value) {
-                      selectedType = value!;
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedValue = newValue;
+                      });
                     },
                   ),
                 ),
-                 Padding(
-                  padding: const EdgeInsets.only(top: 20.0,bottom: 8),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0, bottom: 8),
                   child: Text(
                     CommonText.date,
                     style: TextStyles.fourteenTSBlackMedium,
@@ -155,7 +161,9 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          selectedDate != null? formatDate(selectedDate!): CommonText.selectDate,
+                          selectedDate != null
+                              ? formatDate(selectedDate!)
+                              : CommonText.selectDate,
                           style: TextStyle(
                             color: CommonColor.grayColor,
                             fontSize: 14,
@@ -205,7 +213,7 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                 const SizedBox(
                   height: 15,
                 ),
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.only(top: 5.0),
                   child: Text(
                     CommonText.absence,
@@ -245,7 +253,14 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                           const SizedBox(width: 8),
                           Center(
                             child: Text(
-                              selectedTime != null? DateFormat('h:mm a').format(DateTime(2000, 1, 1, selectedTime!.hour, selectedTime!.minute)): '00:00',
+                              selectedTime != null
+                                  ? DateFormat('h:mm a').format(DateTime(
+                                      2000,
+                                      1,
+                                      1,
+                                      selectedTime!.hour,
+                                      selectedTime!.minute))
+                                  : '00:00',
                               style: TextStyle(
                                 color: CommonColor.grayColor,
                                 fontSize: 14,
@@ -263,7 +278,7 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                 const SizedBox(
                   height: 10,
                 ),
-                 Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 5.0),
                   child: Text(
                     CommonText.note,

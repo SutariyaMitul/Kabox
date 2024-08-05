@@ -31,4 +31,5 @@ class CommonColor{
   static Color red = const Color(0xffE02424);
   static Color greenGrayColor = const Color(0xffE5E7EB);
   static Color textInputBgColor = const Color(0xFFF9FAFB);
+  static Color greyShade = const Color(0xFFBDBDBD);
 }

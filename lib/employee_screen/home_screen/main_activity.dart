@@ -40,8 +40,8 @@ class _MainActivityState extends State<MainActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: CommonColor.white,
         //currentIndex: selectedItemIndex,
         items: [
           BottomNavigationBarItem(
@@ -67,6 +67,9 @@ class _MainActivityState extends State<MainActivity> {
             label: "Schedule",
           ),
           BottomNavigationBarItem(
+            backgroundColor: selectedItemIndex == 2
+                ? CommonColor.white
+                : CommonColor.grayColor,
             icon: Image.asset(
               'assets/images/profile_icon.png',
               width: 20,
@@ -78,6 +81,7 @@ class _MainActivityState extends State<MainActivity> {
             label: "Profile",
           ),
         ],
+        backgroundColor: CommonColor.white,
         selectedFontSize: 14,
         unselectedFontSize: 14,
         selectedItemColor: CommonColor.blueColor,
@@ -117,7 +121,6 @@ class _CommonBottomBarState extends State<CommonBottomBar> {
     return SizedBox(
       height: 65,
       child: BottomNavigationBar(
-        backgroundColor: CommonColor.white,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Image.asset(
@@ -153,6 +156,8 @@ class _CommonBottomBarState extends State<CommonBottomBar> {
               label: "Profile",
             ),
           ],
+          backgroundColor: CommonColor.white,
+          //type: BottomNavigationBarType.shifting,
           currentIndex: 0,
           selectedFontSize: 14,
           unselectedFontSize: 14,
@@ -160,14 +165,7 @@ class _CommonBottomBarState extends State<CommonBottomBar> {
           unselectedItemColor: CommonColor.grayColor,
           selectedLabelStyle: TextStyles.fourteenTSGreen,
           unselectedLabelStyle: TextStyles.fourteenTSGreen,
-          onTap: widget.onTap
-          /*(int index) {
-          Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(
-                builder: (context) => MainActivity(selectedIndex: index)),
-                (route) => false,
-          );
-        },*/
+          onTap: widget.onTap,
           ),
     );
   }

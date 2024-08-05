@@ -1,12 +1,15 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kbox/Common/common_appbar.dart';
 import 'package:kbox/Common/common_button.dart';
 import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_text.dart';
 import 'package:kbox/Common/text_style.dart';
+import 'package:kbox/demo/mainscreen.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
 class ViewDirectionScreen extends StatefulWidget {
@@ -63,6 +66,8 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
     super.dispose();
     _tabController.dispose();
   }
+  final picker = ImagePicker();
+  File? galleryFile;
   @override
   Widget build(BuildContext context) {
     return CommonAppbar(
@@ -77,6 +82,18 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
             (route) => false,
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _showPicker(context: context);
+        },
+        backgroundColor: CommonColor.colorBlue,
+        shape: const CircleBorder(),
+        child: SvgPicture.asset(
+          "assets/images/add_photo.svg",
+          height: 22,
+          width: 22,
+        ),
       ),
       actions: [
         Padding(
@@ -159,8 +176,8 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
                         onPress: _startStopwatch,
                         //_stopwatch.isRunning ? null : _startStopwatch,
                         title: CommonText.checkin,
-                        textStyle: const TextStyle(
-                          color: Colors.white,
+                        textStyle: TextStyle(
+                          color: CommonColor.white,
                           fontSize: 13,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
@@ -175,8 +192,8 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
                         _stopwatch.isRunning ? _stopStopwatch : null,
                         title: CommonText.markcompleted,
                         color: CommonColor.greenColor,
-                        textStyle: const TextStyle(
-                          color: Colors.white,
+                        textStyle: TextStyle(
+                          color: CommonColor.white,
                           fontSize: 13,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
@@ -211,7 +228,7 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
               padding: const EdgeInsets.only(top: 26),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                color: Colors.white,
+                color: CommonColor.white,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20, top: 22),
                   child: Column(
@@ -391,4 +408,53 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
       ),
     );
   }
+  void _showPicker({
+    required BuildContext context,
+  }) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Wrap(
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text('Photo Library'),
+                onTap: () {
+                  getImage(ImageSource.gallery);
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_camera),
+                title: const Text('Camera'),
+                onTap: () {
+                  getImage(ImageSource.camera);
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future getImage(
+      ImageSource img,
+      ) async {
+    final pickedFile = await picker.pickImage(source: img);
+    XFile? xfilePick = pickedFile;
+    setState(
+          () {
+        if (xfilePick != null) {
+          galleryFile = File(pickedFile!.path);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(// is this context <<<
+              const SnackBar(content: Text('Nothing is selected')));
+        }
+      },
+    );
+  }
 }
+

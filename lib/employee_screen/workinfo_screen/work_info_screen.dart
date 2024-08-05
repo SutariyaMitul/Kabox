@@ -292,7 +292,7 @@ class _WorkInfoScreenState extends State<WorkInfoScreen> {
                       CommonText.phone_number,
                       style: TextStyles.fourteenTSBlueSemiBold,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Text(

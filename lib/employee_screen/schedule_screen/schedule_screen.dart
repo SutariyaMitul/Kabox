@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 import 'package:kbox/employee_screen/workscheduldetail_screen/work_schedule_detail.dart';
 
 import '../../Common/common_border_container.dart';
@@ -42,12 +43,13 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       backgroundColor: CommonColor.bgColor,
       appBar: AppBar(
           backgroundColor: CommonColor.blueColor,
+          automaticallyImplyLeading: false,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Icon(
+              Icon(
                 Icons.arrow_back_ios,
-                color: Colors.white,
+                color: CommonColor.white,
                 size: 20,
               ),
               const SizedBox(
@@ -64,9 +66,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               const SizedBox(
                 width: 8,
               ),
-              const Icon(
+              Icon(
                 Icons.arrow_forward_ios,
-                color: Colors.white,
+                color: CommonColor.white,
                 size: 20,
               ),
             ],
@@ -86,7 +88,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                     "assets/images/calendar_icon_one.svg",
                     width: 16,
                     height: 16,
-                    color: Colors.black,
+                    color: CommonColor.black,
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 4.0),

@@ -1,193 +1,73 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 
-// class MainScreen extends StatefulWidget {
-//   @override
-//   _MainScreenState createState() => _MainScreenState();
-// }
-//
-// class _MainScreenState extends State<MainScreen> {
-//   int _selectedIndex = 0;
-//
-//   static List<Widget> _widgetOptions = <Widget>[
-//     HomeScreen(),
-//     BusinessScreen(),
-//     SchoolScreen(),
-//   ];
-//
-//   void _onItemTapped(int index) {
-//     setState(() {
-//       _selectedIndex = index;
-//     });
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: _widgetOptions[_selectedIndex],
-//       bottomNavigationBar: BottomNavigationBar(
-//         items: const <BottomNavigationBarItem>[
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.home),
-//             label: 'Home',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.business),
-//             label: 'Business',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.school),
-//             label: 'School',
-//           ),
-//         ],
-//         currentIndex: _selectedIndex,
-//         selectedItemColor: Colors.amber[800],
-//         onTap: _onItemTapped,
-//       ),
-//     );
-//   }
-// }
-
-class HomeScreen extends StatelessWidget {
+class CameraScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => WorkDetailScreen()),
-            );
-          },
-          child: Text('Go to Work Detail'),
-        ),
-      ),
-    );
-  }
+  _CameraScreenState createState() => _CameraScreenState();
 }
 
-class BusinessScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Business Screen'),
-      ),
-      body: Center(
-        child: Text('Business Screen Content'),
-      ),
-    );
-  }
-}
-
-class SchoolScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('School Screen'),
-      ),
-      body: Center(
-        child: Text('School Screen Content'),
-      ),
-    );
-  }
-}
-
-class WorkDetailScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Work Detail Screen'),
-      ),
-      body: const Center(
-        child: Text('Work Detail Content'),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-        ],
-        currentIndex: 0,
-        selectedItemColor: Colors.amber[800],
-        onTap: (int index) {
-          Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => MainScreen(selectedIndex: index)),
-                (route) => false,
-          );
-        },
-      ),
-    );
-  }
-}
-
-class MainScreen extends StatefulWidget {
-  final int selectedIndex;
-
-  MainScreen({this.selectedIndex = 0});
-
-  @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
+class _CameraScreenState extends State<CameraScreen> {
+  CameraController? controller;
+  List<CameraDescription>? cameras;
+  late CameraDescription firstCamera;
 
   @override
   void initState() {
     super.initState();
-    _selectedIndex = widget.selectedIndex;
+    _initializeCamera();
   }
 
-  static final List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
-    BusinessScreen(),
-    SchoolScreen(),
-  ];
+  Future<void> _initializeCamera() async {
+    cameras = await availableCameras();
+    firstCamera = cameras!.first;
+    controller = CameraController(firstCamera, ResolutionPreset.high);
+    await controller!.initialize();
+    setState(() {});
+  }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    if (controller == null || !controller!.value.isInitialized) {
+      return Center(child: CircularProgressIndicator());
+    }
+
     return Scaffold(
-      body: _widgetOptions[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+      body: Stack(
+        children: [
+          CameraPreview(controller!),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: FloatingActionButton(
+                onPressed: () async {
+                  try {
+                    final image = await controller!.takePicture();
+                    final path = join(
+                      (await getTemporaryDirectory()).path,
+                      '${DateTime.now()}.png',
+                    );
+                    image.saveTo(path);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Picture saved to $path')),
+                    );
+                  } catch (e) {
+                    print(e);
+                  }
+                },
+                child: Icon(Icons.camera_alt),
+              ),
+            ),
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
       ),
     );
   }

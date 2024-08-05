@@ -24,6 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: CommonColor.lightGreyColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: CommonColor.colorBlue,
         title: Text(
           "Profile",
@@ -94,13 +95,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 15.0),
                 child: Divider(
                   height: 0.5,
-                  color: Colors.grey.shade400,
+                  color: CommonColor.greyShade,
                 ),
               ),
               Container(
                 width: width,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: CommonColor.white,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 padding: const EdgeInsets.all(15.0),
@@ -115,7 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: Divider(
                         height: 0.2,
-                        color: Colors.grey.shade400,
+                        color: CommonColor.greyShade,
                       ),
                     ),
                     const CommonProfileItem(
@@ -142,7 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 11.0),
                       child: Divider(
                         height: 0.2,
-                        color: Colors.grey.shade400,
+                        color: CommonColor.greyShade,
                       ),
                     ),
                     CommonButton(
@@ -173,7 +174,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 13.0),
                       child: Divider(
                         height: 0.2,
-                        color: Colors.grey.shade400,
+                        color: CommonColor.greyShade,
                       ),
                     ),
                     const CommonProfileItem(
@@ -196,7 +197,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 11.0),
                       child: Divider(
                         height: 0.2,
-                        color: Colors.grey.shade400,
+                        color:CommonColor.greyShade,
                       ),
                     ),
                     CommonButton(onPress: () {}, title: CommonText.edit)
@@ -224,7 +225,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 15.0),
                       child: Divider(
                         height: 0.2,
-                        color: Colors.grey.shade400,
+                        color: CommonColor.greyShade,
                       ),
                     ),
                     Padding(
