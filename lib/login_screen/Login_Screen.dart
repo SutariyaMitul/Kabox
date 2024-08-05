@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_scaffold.dart';
 import 'package:kbox/Common/common_text.dart';
 import 'package:kbox/Common/common_textfiled.dart';
+import 'package:kbox/employee_screen/choosepassword_screen/choosepasword_screen.dart';
 import 'package:kbox/employee_screen/choosepassword_screen/forget_screen.dart';
+import 'package:kbox/employee_screen/home_screen/homescreen.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
 import '../Common/text_style.dart';
@@ -113,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: InkWell(
                         onTap: () {
                           if(_formKey.currentState!.validate()){
-                            Navigator.push(context, CupertinoPageRoute(builder: (context) =>  MainActivity(),));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),));
                           }
                         },
                         child: Container(

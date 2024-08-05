@@ -328,17 +328,38 @@ class _AvailableForWorkState extends State<AvailableForWork> {
                       style: TextStyles.fourteenTSBlack,
                     ),
                   ),
-                  CommonTextFormField(
-                    controller: noteController,
-                    labelText: CommonText.write_text_here,
-                    labelStyles: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff6B7280),
-                        fontFamily: "Inter",
-                        fontStyle: FontStyle.normal
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 85,
+                    decoration: ShapeDecoration(
+                      color: CommonColor.textInputBgColor,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 1, color: Color(0xFFD1D5DB)),
+                        borderRadius: BorderRadius.circular(7),
+                      ),
                     ),
-                    maxLines: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: TextFormField(
+                        controller: noteController,
+                        textAlign: TextAlign.start,
+                        textAlignVertical: TextAlignVertical.top,
+                        style: TextStyles.fourteenTSBlack,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        decoration: InputDecoration(
+                          hintStyle: TextStyles.fourteenTSGrey,
+                          hintText: CommonText.write_text_here,
+                          contentPadding: const EdgeInsets.all(10),
+                          //alignLabelWithHint: true,
+                          floatingLabelAlignment: FloatingLabelAlignment.start,
+                          filled: true,
+                          fillColor: CommonColor.textInputBgColor,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 3.0),

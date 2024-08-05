@@ -4,7 +4,7 @@ import 'package:kbox/Common/text_style.dart';
 
 class CommonTextFormField extends StatelessWidget {
   final TextEditingController controller;
-  final String labelText;
+  final String? labelText;
   final String? Function(String?)? validator;
   final TextInputType keyboardType;
   final bool obscureText;
@@ -14,11 +14,13 @@ class CommonTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final int? maxLines;
   final bool? enabled;
+  final double? height;
+  final String? hintText;
   //final Widget? preffixIcon;
 
   CommonTextFormField({
     required this.controller,
-    required this.labelText,
+    this.labelText,
     this.validator,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
@@ -28,6 +30,8 @@ class CommonTextFormField extends StatelessWidget {
     this.maxLines,
     this.prefixIcon,
     this.enabled,
+    this.height,
+    this.hintText,
     //this.preffixIcon,
   });
 
@@ -36,14 +40,15 @@ class CommonTextFormField extends StatelessWidget {
     return SizedBox(
       child: TextFormField(
         controller: controller,
+        textAlign: TextAlign.start,
         style: TextStyles.fourteenTSBlack,
         enabled: enabled?? true,
         decoration: InputDecoration(
-          labelText: labelText,
-          labelStyle: labelStyles,
           hintStyle: hintStyle,
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
+          hintText: hintText,
+          contentPadding: const EdgeInsets.all(10),
           //alignLabelWithHint: true,
           floatingLabelAlignment: FloatingLabelAlignment.start,
           filled: true,

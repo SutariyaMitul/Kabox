@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             style: TextStyles.twentyTSBlue,
                                           ),
                                         ),
-                                        Padding(
+                                         Padding(
                                           padding: const EdgeInsets.only(
                                               top: 2.0, bottom: 12),
                                           child: Text(
@@ -134,28 +134,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ],
                             ),
-                            InkWell(
-                              onTap: (){
-                                Navigator.of(context).pushAndRemoveUntil(
-                                  MaterialPageRoute(
-                                      builder: (context) => MainActivity(selectedIndex: 1)),
-                                      (route) => false,
-                                );
-                              },
-                              child: Padding(
-                                padding:
-                                const EdgeInsets.only(top: 17.0),
-                                child: CommonContainer(
-                                  radius: 8,
-                                  color: CommonColor.blueColor,
-                                  child: Center(
-                                    child: Padding(
-                                      padding:
-                                      const EdgeInsets.symmetric(vertical: 13),
-                                      child: Text(
-                                        CommonText.gotoMySchedule,
-                                        style: TextStyles.sixteenTSWhite,
-                                      ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 17.0),
+                              child: CommonContainer(
+                                radius: 8,
+                                color: CommonColor.blueColor,
+                                child: Center(
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 13),
+                                    child: Text(
+                                      CommonText.gotoMySchedule,
+                                      style: TextStyles.sixteenTSWhite,
                                     ),
                                   ),
                                 ),
