@@ -133,6 +133,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               // weekendsIndexes: [6],
               dayOfWeekStyle: TextStyles.fourteenTSGrey,
               pressedDateBackgroundColor: CommonColor.colorBlue,
+              dayShapeBorder: BoxShape.circle,
+              backgroundColor: CommonColor.white,
               pressedDateStyle: TextStyles.sixteenTSWhite,
               todayDateStyle: TextStyles.sixteenTSBlack,
               monthViewBuilder: (DateTime time) => Align(

@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:kbox/Common/common_bottomsheet.dart';
 import 'package:kbox/Common/common_button.dart';
 import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_profile_item.dart';
@@ -15,8 +17,8 @@ class ProfileScreen extends StatefulWidget {
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
-class _ProfileScreenState extends State<ProfileScreen> {
 
+class _ProfileScreenState extends State<ProfileScreen> {
   bool _isPermissionGranted = false;
   bool _isStoragePermissionGranted = false;
   bool _isLocationPermissionGranted = false;
@@ -145,12 +147,96 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
+  final picker = ImagePicker();
+  File? galleryFile;
+
+  void _removeImage() {
+    setState(() {
+      galleryFile = null;
+    });
+  }
+
+  String email = "christian@dreamclean.nu";
+  String address = "Huskvarnavägen";
+  String mobileNum = "0735914241";
+  String language = "Swedish";
+  String personNum = "931025-3019";
+
+  void showProfileEditBottomSheet(BuildContext context) {
+    final emailController = TextEditingController(text: email);
+    final addressController = TextEditingController(text: address);
+    final mobileNumController = TextEditingController(text: mobileNum);
+    final personNumController = TextEditingController(text: personNum);
+    final languageController = TextEditingController(text: language);
+
+    showModalBottomSheet(
+      backgroundColor: CommonColor.white,
+      isScrollControlled: true,
+      showDragHandle: true,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      context: context,
+      builder: (BuildContext context) {
+        return ProfileEditBottomSheet(
+          emailController: emailController,
+          addressController: addressController,
+          mobileController: mobileNumController,
+          languageController: languageController,
+          personNumController: personNumController,
+          onSave: () {
+            setState(() {
+              email = emailController.text;
+              address = addressController.text;
+              mobileNum = mobileNumController.text;
+              language = languageController.text;
+              personNum = personNumController.text;
+
+            });
+          },
+        );
+      },
+    );
+  }
+
+  String namn = "Christian Jebrail";
+  String bank = "Nordea";
+  String clearing = "9021";
+  String kontonummer = "705 124 88";
+
+  void bankEditBottomSheet(BuildContext context) {
+    final namnController = TextEditingController(text: namn);
+    final bankController = TextEditingController(text: bank);
+    final clearingNumController = TextEditingController(text: clearing);
+    final kontonummerController = TextEditingController(text: kontonummer);
+
+    showModalBottomSheet(
+      backgroundColor: CommonColor.white,
+      isScrollControlled: true,
+      showDragHandle: true,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      context: context,
+      builder: (BuildContext context) {
+        return BankInfoEditBottomSheet(
+          bankController: bankController,
+          nameController: namnController,
+          konController: kontonummerController,
+          clearingController: clearingNumController,
+          onSave: () {
+            setState(() {
+              namn = namnController.text;
+              bank = bankController.text;
+              clearing = clearingNumController.text;
+              kontonummer = kontonummerController.text;
+            });
+          },
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: CommonColor.lightGreyColor,
       appBar: AppBar(
@@ -171,14 +257,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Row(
                 children: [
                   CircleAvatar(
+                    backgroundColor: CommonColor.white,
                     radius: 36,
                     child: ClipOval(
-                      child: Image.asset(
+                      child: galleryFile == null
+                          ? Image.asset(
+                              "assets/images/profileimage2.jpg",
+                              fit: BoxFit.fill,
+                              height: 72,
+                              width: 72,
+                            )
+                          : Image.file(
+                              galleryFile!,
+                              fit: BoxFit.fill,
+                              height: 72,
+                              width: 72,
+                            ),
+                      /*Image.asset(
                         "assets/images/profileimage2.jpg",
                         fit: BoxFit.fill,
                         height: 72,
                         width: 72,
-                      ),
+                      ),*/
                     ),
                   ),
                   const SizedBox(
@@ -199,7 +299,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Row(
                         children: [
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              _showPicker(context: context);
+                            },
                             child: Text(
                               CommonText.changephoto,
                               style: TextStyles.twelveTSBlue,
@@ -209,7 +311,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             width: 12,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: _removeImage,
                             child: Text(
                               CommonText.removephoto,
                               style: TextStyles.twelveRed,
@@ -249,25 +351,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: CommonColor.greyShade,
                       ),
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.email,
-                      detail: "christian@dreamclean.nu",
+                      detail: email,
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.adress,
-                      detail: "Huskvarnavägen 62 554 54 Jönköping",
+                      detail: address,
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.mobilenum,
-                      detail: "0735914241",
+                      detail: mobileNum,
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.personnum,
-                      detail: "931025-3019",
+                      detail: personNum,
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.language,
-                      detail: "Swedish",
+                      detail: language,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 11.0),
@@ -277,7 +379,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     CommonButton(
-                      onPress: () {},
+                      onPress: () {
+                        showProfileEditBottomSheet(context);
+                      },
                       title: CommonText.edit,
                     )
                   ],
@@ -307,30 +411,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: CommonColor.greyShade,
                       ),
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.namn,
-                      detail: "Christian Jebrail",
+                      detail: namn,
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.bank,
-                      detail: "Nordea",
+                      detail: bank,
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.clearingnummer,
-                      detail: "9021",
+                      detail: clearing,
                     ),
-                    const CommonProfileItem(
+                    CommonProfileItem(
                       title: CommonText.kontonummer,
-                      detail: "705 124 88",
+                      detail: kontonummer,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 11.0),
                       child: Divider(
                         height: 0.2,
-                        color:CommonColor.greyShade,
+                        color: CommonColor.greyShade,
                       ),
                     ),
-                    CommonButton(onPress: () {}, title: CommonText.edit)
+                    CommonButton(
+                        onPress: () {
+                          bankEditBottomSheet(context);
+                        },
+                        title: CommonText.edit)
                   ],
                 ),
               ),
@@ -369,13 +477,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             style: TextStyles.sixteenTSDarkGraySemiBold,
                           ),
                           InkWell(
-                            onTap: ()async {
+                            onTap: () async {
                               await _requestStoragePermission();
                               // await accessExternalStorage();
                             },
                             child: Text(
-                              _isStoragePermissionGranted ? CommonText.allowed : CommonText.notAllowed,
-                              style: _isStoragePermissionGranted? TextStyles.sixteenGreenRegular: TextStyles.sixteenRedRegular,
+                              _isStoragePermissionGranted
+                                  ? CommonText.allowed
+                                  : CommonText.notAllowed,
+                              style: _isStoragePermissionGranted
+                                  ? TextStyles.sixteenGreenRegular
+                                  : TextStyles.sixteenRedRegular,
                             ),
                           ),
                         ],
@@ -396,8 +508,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               _requestCameraPermission();
                             },
                             child: Text(
-                              _isPermissionGranted? CommonText.allowed : CommonText.notAllowed,
-                              style: _isPermissionGranted ? TextStyles.sixteenGreenRegular : TextStyles.sixteenRedRegular,
+                              _isPermissionGranted
+                                  ? CommonText.allowed
+                                  : CommonText.notAllowed,
+                              style: _isPermissionGranted
+                                  ? TextStyles.sixteenGreenRegular
+                                  : TextStyles.sixteenRedRegular,
                             ),
                           ),
                         ],
@@ -418,8 +534,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               _requestLocationPermission();
                             },
                             child: Text(
-                              _isLocationPermissionGranted? CommonText.allowed : CommonText.notAllowed,
-                              style: _isLocationPermissionGranted ? TextStyles.sixteenGreenRegular : TextStyles.sixteenRedRegular,
+                              _isLocationPermissionGranted
+                                  ? CommonText.allowed
+                                  : CommonText.notAllowed,
+                              style: _isLocationPermissionGranted
+                                  ? TextStyles.sixteenGreenRegular
+                                  : TextStyles.sixteenRedRegular,
                             ),
                           ),
                         ],
@@ -476,54 +596,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
-}
 
-Future<void> accessExternalStorage() async {
-  Directory? directory = await getExternalStorageDirectory();
-  if (directory != null) {
-    print("External storage directory: ${directory.path}");
-    File file = File('${directory.path}/example.txt');
-    await file.writeAsString('Hello, Flutter!');
-    print("File written: ${file.path}");
-    String contents = await file.readAsString();
-    print("File contents: $contents");
-  } else {
-    print("Could not access external storage directory");
+  void _showPicker({
+    required BuildContext context,
+  }) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Wrap(
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text('Photo Library'),
+                onTap: () {
+                  getImage(ImageSource.gallery);
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_camera),
+                title: const Text('Camera'),
+                onTap: () {
+                  getImage(ImageSource.camera);
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future getImage(
+    ImageSource img,
+  ) async {
+    final pickedFile = await picker.pickImage(source: img);
+    setState(
+      () {
+        if (pickedFile != null) {
+          galleryFile = File(pickedFile.path);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(// is this context <<<
+              const SnackBar(content: Text('Nothing is selected')));
+        }
+      },
+    );
   }
 }
-
-Future<void> requestStoragePermission() async {
-  PermissionStatus status = await Permission.storage.request();
-  if (status.isGranted) {
-    print("Storage permission granted");
-  } else if (status.isDenied) {
-    print("Storage permission denied");
-  } else if (status.isPermanentlyDenied) {
-    print("Storage permission permanently denied");
-    await openAppSettings();
-  }
-}
-
-Future<void> requestCameraPermission() async {
-  PermissionStatus status = await Permission.camera.request();
-  if (status.isGranted) {
-    print("Camera permission granted");
-  } else if (status.isDenied) {
-    print("Camera permission denied");
-  } else if (status.isPermanentlyDenied) {
-    print("Camera permission permanently denied");
-    await openAppSettings();
-  }
-}
-
-/*Future<void> requestLocationPermission() async {
-  PermissionStatus status = await Permission.location.request();
-  if (status.isGranted) {
-    print("Location permission granted");
-  } else if (status.isDenied) {
-    print("Location permission denied");
-  } else if (status.isPermanentlyDenied) {
-    print("Location permission permanently denied");
-    await openAppSettings();
-  }
-}*/

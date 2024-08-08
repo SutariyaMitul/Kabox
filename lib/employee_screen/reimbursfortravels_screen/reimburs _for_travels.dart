@@ -119,6 +119,7 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
                 child: CommonTextFormField(
                   controller: milesController,
                   hintText: '12345',
+                  keyboardType: TextInputType.number,
                   labelStyles: TextStyles.fourteenTSGreySemi,
                 ),
               ),

@@ -16,7 +16,7 @@ class CommonText{
   static const String enterYourPassword = "Enter Your Password";
   static const String upcomingCleanings = "Upcoming cleanings";
   static const String enterNewPassword = "Enter new password";
-  static const String forgetYourPassword = "ForGet Your Password";
+  static const String forgetYourPassword = "ForGot Your Password";
   static const String chooseNewPassword = "Choose new password";
   static const String resetPassword = "Reset Password";
   static const String enterPasswordAgain = "Enter password again";

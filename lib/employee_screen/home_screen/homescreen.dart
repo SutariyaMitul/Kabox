@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 import 'package:kbox/employee_screen/registerabsence_screen/register_absence.dart';
 import 'package:kbox/employee_screen/reimbursfortravels_screen/reimburs%20_for_travels.dart';
-import 'package:kbox/employee_screen/schedule_screen/schedule_screen.dart';
 import '../../Common/common_color.dart';
 import '../../Common/common_container.dart';
 import '../../Common/common_text.dart';
 import '../../Common/text_style.dart';
-import '../avaulable_screen/available_for_work.dart';
 import 'package:flutter/services.dart';
+
+import '../request_for_work/available_for_work.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -134,19 +134,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ],
                             ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 17.0),
-                              child: CommonContainer(
-                                radius: 8,
-                                color: CommonColor.blueColor,
-                                child: Center(
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 13),
-                                    child: Text(
-                                      CommonText.gotoMySchedule,
-                                      style: TextStyles.sixteenTSWhite,
+                            InkWell(
+                              onTap: (){
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                      builder: (context) => MainActivity(selectedIndex: 1)),
+                                      (route) => false,
+                                );
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 17.0),
+                                child: CommonContainer(
+                                  radius: 8,
+                                  color: CommonColor.blueColor,
+                                  child: Center(
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.symmetric(vertical: 13),
+                                      child: Text(
+                                        CommonText.gotoMySchedule,
+                                        style: TextStyles.sixteenTSWhite,
+                                      ),
                                     ),
                                   ),
                                 ),

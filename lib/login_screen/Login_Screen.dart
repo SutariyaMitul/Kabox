@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_scaffold.dart';
@@ -114,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: InkWell(
                         onTap: () {
                           if(_formKey.currentState!.validate()){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>  MainActivity(),));
                           }
                         },
                         child: Container(
