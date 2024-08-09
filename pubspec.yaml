@@ -45,6 +45,7 @@ dependencies:
   #location:
   fluttertoast: ^8.2.6
   shared_preferences: ^2.3.1
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:

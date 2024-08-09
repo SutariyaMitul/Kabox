@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,6 +24,34 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   String endDate = 'Jul 14';
 
   final CalendarWeekController _controller = CalendarWeekController();
+  String _firstDayOfWeekStr = '';
+  String _lastDayOfWeekStr = '';
+  final DateFormat _dateFormat = DateFormat('MMM d');
+
+  void _goToPreviousWeek() {
+    setState(() {
+      _controller.jumpToDate(_controller.selectedDate.subtract(const Duration(days: 7)));
+      _updateWeekDates();
+    });
+  }
+
+  void _goToNextWeek() {
+    setState(() {
+      _controller.jumpToDate(_controller.selectedDate.add(const Duration(days: 7)));
+      _updateWeekDates();
+    });
+  }
+
+
+  void _updateWeekDates() {
+    setState(() {
+      final rangeWeekDate = _controller.rangeWeekDate;
+      if (rangeWeekDate.isNotEmpty) {
+        _firstDayOfWeekStr = _dateFormat.format(rangeWeekDate[0]!);
+        _lastDayOfWeekStr = _dateFormat.format(rangeWeekDate[6]!);
+      }
+    });
+  }
 
   List<String> dayOfWeekDefault = [
     'Mon',
@@ -32,6 +62,21 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     'Sat',
     'Sun'
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateWeekDates();
+    });
+  }
+
+  void _jumpToToday() {
+    setState(() {
+      _controller.jumpToDate(DateTime.now());
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,57 +90,57 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Icon(
+              IconButton(onPressed: _goToPreviousWeek, icon: const Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,
                 size: 20,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
+              ),),
+
               Text(
-                startDate,
+                "$_firstDayOfWeekStr",
                 style: TextStyles.eighteenTSWhiteNormal,
               ),
               Text(
-                " - ${endDate}",
+                " - $_lastDayOfWeekStr ",
                 style: TextStyles.eighteenTSWhiteNormal,
               ),
-              const SizedBox(
-                width: 8,
-              ),
-              const Icon(
+              IconButton(onPressed: _goToNextWeek, icon: const Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.white,
                 size: 20,
-              ),
+              ),),
             ],
           ),
           actions: [
-            Container(
-              margin: const EdgeInsets.only(right: 20),
-              height: 37,
-              width: 88,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(8)),
-              padding: const EdgeInsets.all(8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/calendar_icon_one.svg",
-                    width: 16,
-                    height: 16,
-                    color: Colors.black,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 4.0),
-                    child: Text(
-                      'Today',
-                      style: TextStyles.fourteenTSBlack,
+            InkWell(
+              onTap: () {
+                _jumpToToday();
+              },
+              child: Container(
+                margin: const EdgeInsets.only(right: 20),
+                height: 37,
+                width: 88,
+                decoration: BoxDecoration(
+                    color: Colors.white, borderRadius: BorderRadius.circular(8)),
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      "assets/images/calendar_icon_one.svg",
+                      width: 16,
+                      height: 16,
+                      color: Colors.black,
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 4.0),
+                      child: Text(
+                        'Today',
+                        style: TextStyles.fourteenTSBlack,
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
           ]),
@@ -103,48 +148,54 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 120,
+            height: 110,
             child: CalendarWeek(
               controller: _controller,
-              showMonth: false,
-              // weekendsIndexes: [6],
-              minDate: DateTime.now().add(
-                const Duration(days: -365),
-              ),
-              maxDate: DateTime.now().add(
-                const Duration(days: 365),
-              ),
+              showMonth: true,
+              minDate: DateTime.now().subtract(const Duration(days: 365)),
+              maxDate: DateTime.now().add(const Duration(days: 365)),
               onDatePressed: (DateTime datetime) {
-                // Do something
-                setState(() {});
+
               },
               onDateLongPressed: (DateTime datetime) {
-                // Do something
+
               },
               onWeekChanged: () {
-                // Do something
+                setState(() {
+                  _updateWeekDates();
+                });
               },
               weekendsStyle: TextStyles.fourteenTSGrey,
               dateStyle: TextStyles.sixteenTSBlack,
               dayOfWeek: dayOfWeekDefault,
               todayBackgroundColor: const Color(0xffE1EFFE),
-              // weekendsIndexes: [6],
               dayOfWeekStyle: TextStyles.fourteenTSGrey,
               pressedDateBackgroundColor: CommonColor.colorBlue,
               pressedDateStyle: TextStyles.sixteenTSWhite,
               todayDateStyle: TextStyles.sixteenTSBlack,
-              monthViewBuilder: (DateTime time) => Align(
-                alignment: FractionalOffset.center,
-                child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 4),
-                    child: Text(
-                      DateFormat.yMMMM().format(time),
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w500),
-                    )),
+              monthViewBuilder: (DateTime time) => const Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "",
+                  style: TextStyle(
+                    color: Colors.white, // Change this to your desired color
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12, // Adjust the font size if needed
+                  ),
+                ),
               ),
+              // monthViewBuilder: (DateTime time) => Align(
+              //   alignment: FractionalOffset.center,
+              //   child: Container(
+              //       margin: const EdgeInsets.symmetric(vertical: 4),
+              //       child: Text(
+              //         DateFormat.yMMMM().format(time),
+              //         overflow: TextOverflow.ellipsis,
+              //         textAlign: TextAlign.center,
+              //         style: const TextStyle(
+              //             color: Colors.black, fontWeight: FontWeight.w500),
+              //       ),),
+              // ),
               decorations: [
                 DecorationItem(
                   decorationAlignment: FractionalOffset.bottomCenter,
