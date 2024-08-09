@@ -122,7 +122,7 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                       items: absenceType.map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: Text(value),
+                          child: Text(value,style: TextStyles.fourteenTSGreySemi,),
                         );
                       }).toList(),
                       onChanged: (String? newValue) {

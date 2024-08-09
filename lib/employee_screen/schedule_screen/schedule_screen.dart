@@ -1,17 +1,12 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 import 'package:kbox/employee_screen/workscheduldetail_screen/work_schedule_detail.dart';
-
 import '../../Common/common_border_container.dart';
 import '../../Common/common_color.dart';
 import '../../Common/text_style.dart';
 import 'package:intl/intl.dart';
-
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({super.key});
@@ -31,18 +26,19 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
   void _goToPreviousWeek() {
     setState(() {
-      _controller.jumpToDate(_controller.selectedDate.subtract(const Duration(days: 7)));
+      _controller.jumpToDate(
+          _controller.selectedDate.subtract(const Duration(days: 7)));
       _updateWeekDates();
     });
   }
 
   void _goToNextWeek() {
     setState(() {
-      _controller.jumpToDate(_controller.selectedDate.add(const Duration(days: 7)));
+      _controller
+          .jumpToDate(_controller.selectedDate.add(const Duration(days: 7)));
       _updateWeekDates();
     });
   }
-
 
   void _updateWeekDates() {
     setState(() {
@@ -78,7 +74,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.sizeOf(context).width;
@@ -92,26 +87,34 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-
-              IconButton(onPressed: _goToPreviousWeek, icon: const Icon(
-                Icons.arrow_back_ios,
-                color: CommonColor.white,
-                size: 20,
-              ),),
-
+              Flexible(
+                child: IconButton(
+                  onPressed: _goToPreviousWeek,
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: CommonColor.white,
+                    size: 20,
+                  ),
+                ),
+              ),
               Text(
                 "$_firstDayOfWeekStr",
                 style: TextStyles.eighteenTSWhiteNormal,
               ),
               Text(
-                " - $_lastDayOfWeekStr ",
+                "- $_lastDayOfWeekStr ",
                 style: TextStyles.eighteenTSWhiteNormal,
               ),
-              IconButton(onPressed: _goToNextWeek, icon: const Icon(
-                Icons.arrow_forward_ios,
-                color: CommonColor.white,
-                size: 20,
-              ),),
+              Flexible(
+                child: IconButton(
+                  onPressed: _goToNextWeek,
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: CommonColor.white,
+                    size: 20,
+                  ),
+                ),
+              ),
             ],
           ),
           actions: [
@@ -124,7 +127,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 height: 37,
                 width: 88,
                 decoration: BoxDecoration(
-                    color: Colors.white, borderRadius: BorderRadius.circular(8)),
+                    color: CommonColor.white,
+                    borderRadius: BorderRadius.circular(8)),
                 padding: const EdgeInsets.all(8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -157,12 +161,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               showMonth: true,
               minDate: DateTime.now().subtract(const Duration(days: 365)),
               maxDate: DateTime.now().add(const Duration(days: 365)),
-              onDatePressed: (DateTime datetime) {
-
-              },
-              onDateLongPressed: (DateTime datetime) {
-
-              },
+              onDatePressed: (DateTime datetime) {},
+              onDateLongPressed: (DateTime datetime) {},
               onWeekChanged: () {
                 setState(() {
                   _updateWeekDates();
@@ -178,44 +178,26 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               backgroundColor: CommonColor.white,
               pressedDateStyle: TextStyles.sixteenTSWhite,
               todayDateStyle: TextStyles.sixteenTSBlack,
-              monthViewBuilder: (DateTime time) => const Align(
+              monthViewBuilder: (DateTime time) =>  Align(
                 alignment: Alignment.center,
                 child: Text(
                   "",
                   style: TextStyle(
-                    color: Colors.white, // Change this to your desired color
+                    color: CommonColor.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 12, // Adjust the font size if needed
+                    fontSize: 12,
                   ),
                 ),
               ),
-              // monthViewBuilder: (DateTime time) => Align(
-              //   alignment: FractionalOffset.center,
-              //   child: Container(
-              //       margin: const EdgeInsets.symmetric(vertical: 4),
-              //       child: Text(
-              //         DateFormat.yMMMM().format(time),
-              //         overflow: TextOverflow.ellipsis,
-              //         textAlign: TextAlign.center,
-              //         style: const TextStyle(
-              //             color: Colors.black, fontWeight: FontWeight.w500),
-              //       ),),
-              // ),
               decorations: [
                 DecorationItem(
                   decorationAlignment: FractionalOffset.bottomCenter,
                   date: DateTime.now(),
-                  decoration: const SizedBox(height: 3,width: 3,),
+                  decoration: const SizedBox(
+                    height: 3,
+                    width: 3,
+                  ),
                 ),
-                // DecorationItem(
-                //     date: DateTime.now().add(const Duration(days: 3)),
-                //     decoration: const Text(
-                //       'Holiday',
-                //       style: TextStyle(
-                //         color: Colors.brown,
-                //         fontWeight: FontWeight.w600,
-                //       ),
-                //     )),
               ],
             ),
           ),
@@ -237,7 +219,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                             'Monday',
                             style: TextStyles.eighteenTSBlackSemiBold,
                           ),
-                           Text(
+                          Text(
                             '7:30h',
                             style: TextStyles.fourteenTSGrey,
                           ),
@@ -280,8 +262,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                               child: Text(
                                 'Huskvarnavägen 62, Jönköping',
                                 style: TextStyle(
-                                    color: CommonColor.darkGreenText,
-                                    fontSize: 14,
+                                  color: CommonColor.darkGreenText,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -313,8 +295,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 2),
+                              padding: const EdgeInsets.symmetric(vertical: 2),
                               child: Text(
                                 '08:00 - 11:30',
                                 style: TextStyle(
@@ -340,7 +321,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                               child: Text(
                                 'Huskvarnavägen 62, Jönköping',
                                 style: TextStyle(
-                                    color: CommonColor.blueColor, fontSize: 14,fontWeight: FontWeight.w400),
+                                    color: CommonColor.blueColor,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
                               ),
                             ),
                           ],
