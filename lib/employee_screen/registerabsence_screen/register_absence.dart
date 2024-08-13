@@ -6,7 +6,6 @@ import 'package:kbox/Common/common_appbar.dart';
 import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_date_picker.dart';
 import 'package:kbox/Common/common_text.dart';
-import 'package:kbox/Common/common_textfiled.dart';
 import 'package:kbox/Common/common_time_picker.dart';
 import 'package:kbox/Common/text_style.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
@@ -104,10 +103,11 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                     height: 42,
                     width: width,
                     decoration: BoxDecoration(
-                        color: const Color(0xffF9FAFB),
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                            color: CommonColor.borderColor, width: 1.0)),
+                      color: const Color(0xffF9FAFB),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                          color: CommonColor.borderColor, width: 1.0),
+                    ),
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: DropdownButton<String>(
                       dropdownColor: CommonColor.white,
@@ -122,7 +122,10 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                       items: absenceType.map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: Text(value,style: TextStyles.fourteenTSGreySemi,),
+                          child: Text(
+                            value,
+                            style: TextStyles.fourteenTSGreySemi,
+                          ),
                         );
                       }).toList(),
                       onChanged: (String? newValue) {
@@ -145,12 +148,16 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                       width: MediaQuery.of(context).size.width,
                       height: 42,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 12),
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       decoration: ShapeDecoration(
                         color: CommonColor.textInputBgColor,
                         shape: RoundedRectangleBorder(
                           side: const BorderSide(
-                              width: 1, color: Color(0xFFD1D5DB)),
+                            width: 1,
+                            color: Color(0xFFD1D5DB),
+                          ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
@@ -233,12 +240,16 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                         width: MediaQuery.of(context).size.width,
                         height: 42,
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 12),
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
                         decoration: ShapeDecoration(
                           color: const Color(0xFFF9FAFB),
                           shape: RoundedRectangleBorder(
                             side: const BorderSide(
-                                width: 1, color: Color(0xFFD1D5DB)),
+                              width: 1,
+                              color: Color(0xFFD1D5DB),
+                            ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
@@ -257,12 +268,10 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                             Center(
                               child: Text(
                                 selectedTime != null
-                                    ? DateFormat('h:mm a').format(DateTime(
-                                        2000,
-                                        1,
-                                        1,
-                                        selectedTime!.hour,
-                                        selectedTime!.minute))
+                                    ? DateFormat('h:mm a').format(
+                                        DateTime(2000, 1, 1, selectedTime!.hour,
+                                            selectedTime!.minute),
+                                      )
                                     : '00:00',
                                 style: TextStyle(
                                   color: CommonColor.grayColor,
@@ -320,7 +329,6 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                       ),
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5.0),
                     child: Text(
@@ -328,9 +336,35 @@ class _RegisterAbsenceState extends State<RegisterAbsence> {
                       style: TextStyles.twelveTSGrey,
                     ),
                   ),
-                  const SizedBox(
-                    height: 100,
-                  )
+                  Padding(
+                    padding: const EdgeInsets.only(top: 31, bottom: 19),
+                    child: InkWell(
+                      onTap: () {
+                        /* if (_formKey.currentState!.validate()) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MainActivity(),
+                              ));
+                        }*/
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: CommonColor.blueWhiteColor,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(8),
+                            )),
+                        height: 41,
+                        width: MediaQuery.of(context).size.width,
+                        child: Center(
+                          child: Text(
+                            CommonText.login,
+                            style: TextStyles.fourteenTSWhite,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

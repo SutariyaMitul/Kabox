@@ -368,6 +368,35 @@ class _AvailableForWorkState extends State<AvailableForWork> {
                         style: TextStyles.fourteenTSGrey,
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 31, bottom: 19),
+                      child: InkWell(
+                        onTap: () {
+                        /*  if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MainActivity(),
+                                ));
+                          }*/
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: CommonColor.blueWhiteColor,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(8),
+                              )),
+                          height: 41,
+                          width: MediaQuery.of(context).size.width,
+                          child: Center(
+                            child: Text(
+                              CommonText.save,
+                              style: TextStyles.fourteenTSWhite,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

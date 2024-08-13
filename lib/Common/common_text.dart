@@ -2,6 +2,7 @@ class CommonText{
   static const String login = "Login";
   static const String logout = "Log out";
   static const String email = "Email";
+  static const String save = "Save";
   static const String Continue = "Continue";
   static const String password = "Password";
   static const String createAccount = "Create account";

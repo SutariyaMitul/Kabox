@@ -174,19 +174,40 @@ class _ReimbursForTravelsState extends State<ReimbursForTravels> {
                   ),
                 ),
               ),
-
-              // CommonTextFormField(
-              //   controller: noteController,
-              //   labelText: CommonText.write_text_here,
-              //   labelStyles: TextStyles.fourteenTSGreySemi,
-              //   hintText: CommonText.write_text_here,
-              //   maxLines: 3,
-              // ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   CommonText.note_extrainfo,
                   style: TextStyles.fourteenTSGrey,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 31, bottom: 19),
+                child: InkWell(
+                  onTap: () {
+                    /*if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MainActivity(),
+                          ));
+                    }*/
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: CommonColor.blueWhiteColor,
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8),
+                        )),
+                    height: 41,
+                    width: MediaQuery.of(context).size.width,
+                    child: Center(
+                      child: Text(
+                        CommonText.save,
+                        style: TextStyles.fourteenTSWhite,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
