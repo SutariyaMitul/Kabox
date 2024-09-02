@@ -9,6 +9,15 @@ class TextStyles {
     fontFamily: "Inter",
   );
 
+
+  static TextStyle thirtyTSDarkGray = TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      color: CommonColor.darkGreyColor,
+      fontFamily: "Inter",
+      fontStyle: FontStyle.normal
+  );
+
   static TextStyle fourteenTSWhite = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
@@ -140,7 +149,7 @@ class TextStyles {
     color: CommonColor.darkGreyColor,
     fontFamily: "inter",
   );
-  static TextStyle sixteenTSDarkGrayRegularFour = TextStyle(
+  static TextStyle fifteenTSDarkGrayRegularFour = TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.w400,
       color: CommonColor.darkGreyColor,
@@ -264,6 +273,14 @@ class TextStyles {
     fontFamily: 'Inter',
   );
 
+  static TextStyle sixteenTSBlackSemiBold =  TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: CommonColor.darkGrayColor,
+    fontStyle: FontStyle.normal,
+    fontFamily: 'Inter',
+  );
+
   static TextStyle sixteenGrey = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
@@ -312,6 +329,13 @@ class TextStyles {
   );
 
   static TextStyle sixteenRedRegular = TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: CommonColor.red,
+      fontFamily: "inter",
+      fontStyle: FontStyle.normal);
+
+  static TextStyle fourteenRedRegular = TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w400,
       color: CommonColor.red,

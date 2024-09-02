@@ -103,6 +103,11 @@ class CommonText{
   static String plzEnterValidEmail  = 'Please enter valid email address';
   static String plzEnterPass  = 'Please enter valid password';
   static String passNotMatch  = 'Password not match!';
+  static String attachment = "Attachment";
+  static String pictureofbathroom = "Picture of bathroom.jpg";
+  static String view = "View";
+  static String download = "Download";
+  static String delete = "Delete";
 
 
 

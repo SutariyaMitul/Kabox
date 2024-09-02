@@ -9,7 +9,7 @@ import 'package:kbox/Common/common_button.dart';
 import 'package:kbox/Common/common_color.dart';
 import 'package:kbox/Common/common_text.dart';
 import 'package:kbox/Common/text_style.dart';
-import 'package:kbox/demo/mainscreen.dart';
+// import 'package:kbox/demo/mainscreen.dart';
 import 'package:kbox/employee_screen/home_screen/main_activity.dart';
 
 class ViewDirectionScreen extends StatefulWidget {
@@ -277,7 +277,7 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
                                 Text(
                                   "Mon, Sep 18, 2023",
                                   style:
-                                  TextStyles.sixteenTSDarkGrayRegularFour,
+                                  TextStyles.fifteenTSDarkGrayRegularFour,
                                 ),
                               ],
                             ),
@@ -294,7 +294,7 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
                                   Text(
                                     "09:00 - 12:00",
                                     style: TextStyles
-                                        .sixteenTSDarkGrayRegularFour,
+                                        .fifteenTSDarkGrayRegularFour,
                                   ),
                                 ],
                               ),
@@ -348,7 +348,7 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
                       ),
                       Text(
                         "John Smith",
-                        style: TextStyles.sixteenTSDarkGrayRegularFour,
+                        style: TextStyles.fifteenTSDarkGrayRegularFour,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 15.0),
@@ -362,7 +362,7 @@ class _ViewDirectionScreenState extends State<ViewDirectionScreen>  with SingleT
                                 Text(
                                   "Huskvarnavägen 62",
                                   style:
-                                  TextStyles.sixteenTSDarkGrayRegularFour,
+                                  TextStyles.fifteenTSDarkGrayRegularFour,
                                 ),
                                 Text(
                                   "554 54 Jönköping",
