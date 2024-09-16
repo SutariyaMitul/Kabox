@@ -14,14 +14,26 @@ class ChecklistScreen extends StatefulWidget {
 
 class _ChecklistScreenState extends State<ChecklistScreen> {
 
-  List<Map<String,dynamic>> checkListData = [
+  List<Map<String, dynamic>> checkListData = [
     {
-      'title':'Home-cleaning Bathroom',
-      'items':['Remove the color from the wall','Clean the toilet seat','Clean the toilet seat','Item 4','Item 5']
+      'title': 'Home-cleaning Bathroom',
+      'items': [
+        {'name': 'Remove the color from the wall', 'isChecked': false},
+        {'name': 'Clean the toilet seat', 'isChecked': true},
+        {'name': 'Clean the toilet seat', 'isChecked': false},
+        {'name': 'Item 4', 'isChecked': true},
+        {'name': 'Item 5', 'isChecked': false}
+      ]
     },
     {
-      'title':'Kitchen',
-      'items':['Remove the color from the wall','Take picture','Add it here','Item 4','Item 5']
+      'title': 'Kitchen',
+      'items': [
+        {'name': 'Remove the color from the wall', 'isChecked': false},
+        {'name': 'Take picture', 'isChecked': false},
+        {'name': 'Add it here', 'isChecked': true},
+        {'name': 'Item 4', 'isChecked': false},
+        {'name': 'Item 5', 'isChecked': false}
+      ]
     }
   ];
   late bool isChecked = false;
@@ -46,20 +58,17 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
               ),
 
               ListView.builder(shrinkWrap: true,itemCount: checkListData[index]['items'].length,itemBuilder: (context, index2) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Checkbox(value: false, onChanged: (value) {
+                return CheckboxListTile(value: isChecked, onChanged: (value) {
+                  isChecked == value;
+                  setState(() {
 
-                        setState(() {
-                          isChecked = value!;
-                        });
-                    },),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text(checkListData[index]['items'][index2],style: TextStyles.fifteenTSDarkGrayRegularFour,),
-                    )
-                  ],
+                  });
+                },
+                title: Text(checkListData[index]['items'][index2]['name'],style: TextStyles.fifteenTSDarkGrayRegularFour,),
+                  controlAffinity: ListTileControlAffinity.leading,
+                contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                  side: BorderSide(color: CommonColor.borderColor,width: 1),
+                  visualDensity: const VisualDensity(horizontal: -4,vertical: -3.5),
                 );
               },)
 

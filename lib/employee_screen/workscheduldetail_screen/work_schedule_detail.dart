@@ -88,65 +88,67 @@ class _WorkScheduleDetailState extends State<WorkScheduleDetail>
         },
       ),
       actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 3),
-          child: Container(
-            //constraints: const BoxConstraints(maxHeight: 150.0),
-            alignment: Alignment.centerRight,
-            height: 35,
-            width: 250,
-            decoration: BoxDecoration(
-              color: CommonColor.white,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 3, bottom: 3),
-              child: TabBar(
-                indicator: BoxDecoration(
-                    color: CommonColor.blueWhiteColor,
-                    borderRadius: BorderRadius.circular(8)),
-                controller: _tabController,
-                dividerHeight: 00,
-                labelColor: CommonColor.white,
-                unselectedLabelColor: CommonColor.darkGreyColor,
-                labelStyle: TextStyles.twelveTSGrey,
-                padding: EdgeInsets.zero,
-                labelPadding: const EdgeInsets.all(6),
-                tabs: [
-                  Tab(
-                    child: Container(
-                      height: 43,
-                      width: 70,
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(8)),
-                      child: const Center(
-                        child: Text("info"),
+        SizedBox(
+          width: width*0.7,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 3),
+            child: Container(
+              //constraints: const BoxConstraints(maxHeight: 150.0),
+              alignment: Alignment.centerRight,
+              height: 35,
+              decoration: BoxDecoration(
+                color: CommonColor.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 3, bottom: 3),
+                child: TabBar(
+                  indicator: BoxDecoration(
+                      color: CommonColor.blueWhiteColor,
+                      borderRadius: BorderRadius.circular(8)),
+                  controller: _tabController,
+                  dividerHeight: 00,
+                  labelColor: CommonColor.white,
+                  unselectedLabelColor: CommonColor.darkGreyColor,
+                  labelStyle: TextStyles.twelveTSGrey,
+                  padding: EdgeInsets.zero,
+                  labelPadding: const EdgeInsets.all(6),
+                  tabs: [
+                    Tab(
+                      child: Container(
+                        height: 43,
+                        width: 70,
+                        decoration:
+                            BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                        child: const Center(
+                          child: Text("info"),
+                        ),
                       ),
                     ),
-                  ),
-                  Tab(
-                    child: Container(
-                      height: 43,
-                      width: 70,
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(8)),
-                      child: const Center(
-                        child: Text("Files(3)"),
+                    Tab(
+                      child: Container(
+                        height: 43,
+                        width: 70,
+                        decoration:
+                            BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                        child: const Center(
+                          child: Text("Files(3)"),
+                        ),
                       ),
                     ),
-                  ),
-                  Tab(
-                    child: Container(
-                      height: 43,
-                      width: 110,
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(8)),
-                      child: const Center(
-                        child: Text("Checklist (1)"),
+                    Tab(
+                      child: Container(
+                        height: 43,
+                        width: 110,
+                        decoration:
+                            BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                        child: const Center(
+                          child: Text("Checklist (1)"),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

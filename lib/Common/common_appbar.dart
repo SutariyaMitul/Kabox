@@ -26,6 +26,10 @@ class CommonAppbar extends StatefulWidget {
 class _CommonAppbarState extends State<CommonAppbar> {
   @override
   Widget build(BuildContext context) {
+
+    final Size size = MediaQuery.sizeOf(context);
+    final double width = size.width;
+
     return Scaffold(
       //backgroundColor: CommonColor.bgColor,
       resizeToAvoidBottomInset: false,
